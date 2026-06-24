@@ -99,3 +99,13 @@ AI-Curi-hub/
 - 하루 최종 카드 수: 5~15개 (15개 초과 금지 — 품질 우선)
 - feed.json은 최신 30일치만 유지 (오래된 항목은 archive로 이동)
 - 항상 한국어로 Joy와 대화
+
+## 30일 롤오버 절차
+게시(push) 직전, feed.json의 `items`에서 `date`가 오늘 기준 30일을 초과한 항목을 정리한다.
+1. 30일 초과 항목을 골라 **발행 월별**로 `docs/data/archive/YYYY-MM.json`에 합친다
+   - 해당 월 파일이 이미 있으면 items 배열에 append, 없으면 새로 생성 (스키마는 feed.json items와 동일)
+2. feed.json `items`에서 해당 항목들을 제거 (최신순 유지)
+3. archive는 보관 전용 — 사이트(app.js)는 읽지 않으므로 형식만 맞으면 됨
+4. 모든 JSON은 커밋 전 유효성 확인 (`python3 -m json.tool`)
+
+> 현재 카드는 전부 2026-06월 발행이라 아직 롤오버 대상 없음. archive 폴더만 준비된 상태.

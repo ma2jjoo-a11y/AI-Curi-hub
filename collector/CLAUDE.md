@@ -15,7 +15,7 @@
 |------|-----|------|
 | Anthropic News | https://www.anthropic.com/news | Web fetch |
 | Anthropic Changelog | https://docs.anthropic.com/changelog | Web fetch |
-| OpenAI Blog | https://openai.com/blog | Web fetch |
+| OpenAI Blog | https://openai.com/news/rss.xml | RSS (※ /news 웹페이지는 403 — RSS로 우회) |
 | OpenAI Changelog | https://platform.openai.com/docs/changelog | Web fetch |
 | Google DeepMind Blog | https://deepmind.google/discover/blog/ | Web fetch |
 | Meta AI Blog | https://ai.meta.com/blog/ | Web fetch |
