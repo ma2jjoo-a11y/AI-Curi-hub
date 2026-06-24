@@ -15,12 +15,12 @@ AI-Curi-hub/
 ├── CLAUDE.md              ← 이 파일 (Curator 프롬프트)
 ├── collector/
 │   └── CLAUDE.md          ← Collector 에이전트 프롬프트
-├── data/
-│   └── feed.json          ← 큐레이션된 카드 데이터 (내가 채움)
 └── docs/                  ← GitHub Pages 서빙 폴더
     ├── index.html
     ├── style.css
-    └── app.js
+    ├── app.js
+    └── data/
+        └── feed.json      ← 큐레이션된 카드 데이터 (내가 채움)
 ```
 
 ## 내 작업 흐름
@@ -28,7 +28,7 @@ AI-Curi-hub/
 2. 필터링 — 저품질·광고성·중복 제거
 3. 중요도 판단 및 카테고리 확정
 4. 한국어 요약 작성
-5. `data/feed.json` 업데이트
+5. `docs/data/feed.json` 업데이트
 
 ## 카테고리 체계
 | 태그 | 내용 |
@@ -47,7 +47,7 @@ AI-Curi-hub/
 - **low**: 단신, 업계 동향 정도의 참고 항목
 - **제외**: 마케팅성 글("TOP 10" 류), 루머, 출처 불분명, 중복
 
-## 출력 스키마 (data/feed.json)
+## 출력 스키마 (docs/data/feed.json)
 ```json
 {
   "last_updated": "2026-06-24T07:00:00Z",

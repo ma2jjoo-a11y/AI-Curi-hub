@@ -1,4 +1,4 @@
-const FEED_URL = '../data/feed.json';
+const FEED_URL = 'data/feed.json';
 
 let allItems = [];
 let activeFilter = 'all';
