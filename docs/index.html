@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이큐리허브 — AI Intel Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">◈</span>
+        <span class="logo-text">아이큐리허브</span>
+        <span class="logo-sub">AI Intel Hub</span>
+      </div>
+      <div class="header-meta">
+        <span id="last-updated"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">전체</button>
+      <button class="filter-btn" data-filter="7">7일</button>
+      <button class="filter-btn" data-filter="30">30일</button>
+      <button class="filter-btn" data-importance="high">🔴 중요</button>
+    </div>
+    <div class="category-filters">
+      <button class="cat-btn active" data-cat="all">모두</button>
+      <button class="cat-btn" data-cat="🚀 릴리즈">🚀 릴리즈</button>
+      <button class="cat-btn" data-cat="🔧 도구">🔧 도구</button>
+      <button class="cat-btn" data-cat="📡 API·기술">📡 API·기술</button>
+      <button class="cat-btn" data-cat="📊 연구">📊 연구</button>
+      <button class="cat-btn" data-cat="💼 비즈니스">💼 비즈니스</button>
+      <button class="cat-btn" data-cat="🌏 한국">🌏 한국</button>
+      <button class="cat-btn" data-cat="🔥 화제">🔥 화제</button>
+    </div>
+  </div>
+
+  <main>
+    <div id="feed" class="feed"></div>
+    <div id="empty" class="empty hidden">아직 수집된 데이터가 없어요.</div>
+  </main>
+
+  <footer>
+    <p>아이큐리허브 · Joy의 개인 AI 인텔리전스 허브</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

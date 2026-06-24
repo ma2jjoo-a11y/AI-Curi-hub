@@ -1,0 +1,71 @@
+{
+  "last_updated": "2026-06-24T07:00:00Z",
+  "items": [
+    {
+      "id": "a1b2c3d4",
+      "date": "2026-06-24",
+      "category": "🚀 릴리즈",
+      "title_ko": "Anthropic, Claude 4 Opus 공식 출시",
+      "summary_ko": "Anthropic이 가장 강력한 모델 Claude 4 Opus를 발표했다. 기존 대비 코딩·추론 능력이 크게 향상됐으며, 확장된 컨텍스트 윈도우와 향상된 멀티모달 기능을 제공한다.",
+      "source": "Anthropic Blog",
+      "url": "https://www.anthropic.com/news",
+      "importance": "high",
+      "tags": ["Claude", "Anthropic", "릴리즈"]
+    },
+    {
+      "id": "b2c3d4e5",
+      "date": "2026-06-23",
+      "category": "📡 API·기술",
+      "title_ko": "OpenAI, Realtime API 음성 기능 대폭 업데이트",
+      "summary_ko": "OpenAI가 Realtime API의 음성 인식 정확도와 응답 지연을 개선한 업데이트를 배포했다. 한국어를 포함한 다국어 지원도 강화됐다.",
+      "source": "OpenAI Blog",
+      "url": "https://openai.com/blog",
+      "importance": "medium",
+      "tags": ["OpenAI", "API", "음성"]
+    },
+    {
+      "id": "c3d4e5f6",
+      "date": "2026-06-23",
+      "category": "🔧 도구",
+      "title_ko": "Cursor, AI 에디터 최신 버전에서 멀티파일 편집 지원",
+      "summary_ko": "Cursor가 여러 파일을 동시에 AI로 편집할 수 있는 기능을 정식 출시했다. 대형 리팩토링 작업의 효율이 크게 오를 전망이다.",
+      "source": "ProductHunt",
+      "url": "https://www.producthunt.com",
+      "importance": "medium",
+      "tags": ["Cursor", "코딩", "개발도구"]
+    },
+    {
+      "id": "d4e5f6g7",
+      "date": "2026-06-22",
+      "category": "🔥 화제",
+      "title_ko": "\"AI가 내 업무의 80%를 대체했다\" — 레딧 화제글",
+      "summary_ko": "r/artificial 커뮤니티에서 한 마케터가 AI 도구 조합으로 업무 대부분을 자동화했다는 글이 수천 개의 공감을 받았다. 활용한 도구 스택과 구체적인 워크플로가 공유됐다.",
+      "source": "Reddit r/artificial",
+      "url": "https://reddit.com/r/artificial",
+      "importance": "medium",
+      "tags": ["자동화", "워크플로", "커뮤니티"]
+    },
+    {
+      "id": "e5f6g7h8",
+      "date": "2026-06-22",
+      "category": "📊 연구",
+      "title_ko": "Google DeepMind, 수학 문제 해결 AI 'AlphaProof' 성능 향상 논문 발표",
+      "summary_ko": "DeepMind가 수학 올림피아드 수준의 문제를 푸는 AI 시스템의 최신 성능 향상을 담은 논문을 arXiv에 공개했다. 기호 추론과 신경망을 결합한 새로운 접근법을 사용했다.",
+      "source": "Google DeepMind Blog",
+      "url": "https://deepmind.google/discover/blog/",
+      "importance": "high",
+      "tags": ["DeepMind", "연구", "수학"]
+    },
+    {
+      "id": "f6g7h8i9",
+      "date": "2026-06-21",
+      "category": "🌏 한국",
+      "title_ko": "국내 AI 스타트업 투자 1분기 역대 최고치 기록",
+      "summary_ko": "2026년 1분기 국내 AI 관련 스타트업 투자액이 전년 동기 대비 230% 증가했다고 AI타임스가 보도했다. 특히 B2B SaaS와 AI 에이전트 분야에 자금이 집중됐다.",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com",
+      "importance": "medium",
+      "tags": ["한국", "투자", "스타트업"]
+    }
+  ]
+}
