@@ -35,6 +35,8 @@
 | VentureBeat AI | https://venturebeat.com/category/ai/feed/ | RSS |
 | TechCrunch AI | https://techcrunch.com/tag/artificial-intelligence/feed/ | RSS |
 | The Verge AI | https://www.theverge.com/ai-artificial-intelligence/rss/index.xml | RSS |
+| The Decoder | https://the-decoder.com/feed/ | RSS (독립 AI 전문매체, 팩트 중심 — 글로벌·일본·중국 커버) |
+| The Rundown AI | https://www.therundown.ai/feed | RSS (대형 AI 뉴스레터, 속보 빠름) |
 
 ### 뉴스레터 RSS
 | 소스 | URL |
@@ -55,7 +57,8 @@
 | 디지털투데이 AI | https://www.digitaltoday.co.kr/rss/allArticle.xml | RSS |
 
 ## 수집 규칙
-- 24시간 이내 발행된 항목만 수집
+- 지난 수집 이후 발행된 항목 수집 (지난 수집 기록이 없으면 최근 7일까지)
+  - 며칠 지났더라도 굵직한 발표(신규 모델·프런티어급 출시 등)는 누락하지 말 것
 - 이전 output 파일의 URL 목록과 비교해 중복 수집 금지
 - 수집 실패한 소스는 errors 배열에 기록하고 계속 진행 (전체 중단 금지)
 - 판단·요약·편집 금지. 원문 제목과 원문 첫 200자만 저장
