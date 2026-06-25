@@ -7,46 +7,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-mark">◈</span>
-        <span class="logo-text">아이큐리</span>
-        <span class="logo-sub">AI-Curi</span>
+  <!-- ① 상단바 -->
+  <header class="topbar">
+    <div class="col topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">◈ 아이큐리</span>
+        <span class="brand-sub">AI-Curi Intel</span>
       </div>
-      <div class="header-meta">
-        <span id="last-updated"></span>
-      </div>
+      <button class="search-btn" id="search-btn" aria-label="검색" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <div class="filter-bar">
-    <div class="filter-inner">
-      <button class="filter-btn active" data-filter="all">전체</button>
-      <button class="filter-btn" data-filter="7">7일</button>
-      <button class="filter-btn" data-filter="30">30일</button>
-      <button class="filter-btn" data-importance="high">🔴 중요</button>
-    </div>
-    <div class="category-filters">
-      <button class="cat-btn active" data-cat="all">모두</button>
-      <button class="cat-btn" data-cat="🚀 릴리즈">🚀 릴리즈</button>
-      <button class="cat-btn" data-cat="🔧 도구">🔧 도구</button>
-      <button class="cat-btn" data-cat="📡 API·기술">📡 API·기술</button>
-      <button class="cat-btn" data-cat="📊 연구">📊 연구</button>
-      <button class="cat-btn" data-cat="💼 비즈니스">💼 비즈니스</button>
-      <button class="cat-btn" data-cat="🌏 한국">🌏 한국</button>
-      <button class="cat-btn" data-cat="🔥 화제">🔥 화제</button>
-    </div>
+  <!-- 검색 입력 (토글) -->
+  <div class="search-row col hidden" id="search-row">
+    <input type="search" id="search-input" placeholder="제목·본문·출처·태그 검색" autocomplete="off">
   </div>
 
-  <main>
+  <!-- ② 필터칩 행 -->
+  <nav class="filters col" id="filters" aria-label="필터">
+    <button class="chip active" data-cat="all">전체</button>
+    <button class="chip" data-cat="릴리즈">릴리즈</button>
+    <button class="chip" data-cat="도구">도구</button>
+    <button class="chip" data-cat="API·기술">API·기술</button>
+    <button class="chip" data-cat="연구">연구</button>
+    <button class="chip" data-cat="비즈니스">비즈니스</button>
+    <button class="chip" data-cat="한국">한국</button>
+    <button class="chip" data-cat="화제">화제</button>
+    <button class="chip" data-imp="high">🔴 중요</button>
+  </nav>
+
+  <!-- ③ 피드 리스트 -->
+  <main class="col">
     <div id="feed" class="feed"></div>
     <div id="empty" class="empty hidden">아직 수집된 데이터가 없어요.</div>
+    <div class="list-footer" id="list-footer">⋯ 스크롤하여 더 불러오기 ⋯</div>
+    <div class="last-updated" id="last-updated"></div>
   </main>
-
-  <footer>
-    <p>아이큐리 · Joy의 개인 AI 인텔리전스 허브</p>
-  </footer>
 
   <script src="app.js"></script>
 </body>
