@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  @keyframes acFade { from { transform:translateY(4px) } to { transform:none } }
+  .ac * { box-sizing:border-box; }
+  .ac ::-webkit-scrollbar { width:10px; }
+  .ac ::-webkit-scrollbar-thumb { background:var(--div,#e6e6e6); border-radius:10px; }
+</style>
+</helmet>
+
+<div class="ac" style="{{ themeVars }};min-height:100vh;background:var(--bg,#fff);color:var(--tx,#0a0a0a);font-family:-apple-system,'Apple SD Gothic Neo','Pretendard',system-ui,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center">
+
+  <!-- top bar -->
+  <div style="position:sticky;top:0;z-index:20;width:100%;display:flex;justify-content:center;background:color-mix(in srgb, var(--bg,#fff) 86%, transparent);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--div,#ededed)">
+    <div style="width:100%;max-width:640px;display:flex;align-items:center;gap:12px;padding:14px 16px">
+      <div style="font-weight:800;font-size:19px;letter-spacing:-.02em">◈ 아이큐리</div>
+      <div style="font-size:13px;color:var(--sub,#999);font-weight:600;margin-top:2px">AI-Curi Intel</div>
+      <div style="flex:1"></div>
+      <div style="width:36px;height:36px;border-radius:50%;border:1px solid var(--div,#ededed);display:flex;align-items:center;justify-content:center;color:var(--sub,#999)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3-3"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- filter chips -->
+  <div style="width:100%;max-width:640px;padding:12px 16px 4px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="8">
+      <div onClick="{{ f.onClick }}" style="{{ f.style }};flex:0 0 auto;padding:7px 14px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;user-select:none;transition:all .15s">{{ f.label }}</div>
+    </sc-for>
+  </div>
+
+  <!-- feed -->
+  <div style="width:100%;max-width:640px">
+    <sc-for list="{{ posts }}" as="p" hint-placeholder-count="4">
+      <div style="padding:18px 16px;border-bottom:1px solid var(--div,#ededed);animation:acFade .25s ease both">
+        <div style="display:flex;gap:12px">
+          <!-- avatar column -->
+          <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center">
+            <div style="{{ p.avatarStyle }};width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px">{{ p.emoji }}</div>
+          </div>
+          <!-- content column -->
+          <div style="flex:1;min-width:0">
+            <!-- header row -->
+            <div style="display:flex;align-items:center;gap:6px">
+              <span style="font-weight:700;font-size:15px;letter-spacing:-.01em">{{ p.category }}</span>
+              <sc-if value="{{ p.important }}" hint-placeholder-val="{{ true }}"><span style="width:6px;height:6px;border-radius:50%;background:#f0322e;flex:0 0 auto"></span></sc-if>
+              <span style="font-size:15px;color:var(--sub,#999)">· {{ p.source }} · {{ p.time }}</span>
+              <span style="flex:1"></span>
+              <span style="color:var(--sub,#999);font-size:18px;line-height:1;cursor:pointer">···</span>
+            </div>
+            <!-- title -->
+            <div style="font-weight:700;font-size:17px;line-height:1.32;letter-spacing:-.01em;margin-top:5px">{{ p.title }}</div>
+            <!-- body -->
+            <div style="{{ p.bodyStyle }};font-size:15px;line-height:1.5;color:var(--body,#3c3c3c);margin-top:6px;word-break:break-word">{{ p.displayBody }}</div>
+            <sc-if value="{{ p.needsMore }}" hint-placeholder-val="{{ true }}">
+              <span onClick="{{ p.onToggle }}" style="display:inline-block;margin-top:3px;font-size:15px;font-weight:600;color:var(--sub,#8a8a8a);cursor:pointer">{{ p.moreLabel }}</span>
+            </sc-if>
+            <!-- tags -->
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:11px">
+              <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="3">
+                <span style="font-size:14px;font-weight:600;color:var(--link,#536471);cursor:pointer">#{{ t }}</span>
+              </sc-for>
+            </div>
+            <!-- actions -->
+            <div style="display:flex;align-items:center;gap:8px;margin-top:13px">
+              <a href="{{ p.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding:7px 13px;border-radius:999px;border:1px solid var(--tx,#0a0a0a);color:var(--tx,#0a0a0a);font-size:13px;font-weight:700">
+                원본 읽기
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"></path></svg>
+              </a>
+              <span onClick="{{ p.onTranslate }}" style="display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;border:1px solid var(--div,#e2e2e2);color:var(--sub,#666);font-size:13px;font-weight:700;cursor:pointer">{{ p.translateLabel }}</span>
+              <span style="flex:1"></span>
+              <span style="color:var(--sub,#999);cursor:pointer;display:inline-flex"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></span>
+              <span style="color:var(--sub,#999);cursor:pointer;display:inline-flex"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="text-align:center;padding:24px;color:var(--sub,#bbb);font-size:14px">⋯ 스크롤하여 더 불러오기 ⋯</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:900},&quot;darkMode&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;coloredAvatars&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;clampLines&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:2,&quot;max&quot;:6,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { filter: "전체", expanded: {}, translated: {} };
+
+  cats = {
+    "릴리즈":   { emoji:"🚀", color:"#1aa35a" },
+    "도구":     { emoji:"🔧", color:"#c98a14" },
+    "API·기술": { emoji:"📡", color:"#0e9aa7" },
+    "연구":     { emoji:"📊", color:"#2f6fdb" },
+    "비즈니스": { emoji:"💼", color:"#9a6b2f" },
+    "한국":     { emoji:"🌏", color:"#d64545" },
+    "화제":     { emoji:"🔥", color:"#e8590c" },
+  };
+
+  data = [
+    { id:1, category:"릴리즈", source:"OpenAI", time:"2시간", important:true,
+      title:"GPT-5.5 정식 출시 — 추론 속도 2배, 가격은 절반으로",
+      body:"오픈AI가 차세대 모델 GPT-5.5를 공개했다. 동일 정확도 기준 추론 비용을 약 50% 낮췄고, 평균 응답 지연은 절반 수준으로 줄었다고 밝혔다. 이번 버전은 100만 토큰 컨텍스트와 함수 호출 신뢰도 개선을 핵심으로 내세웠으며, 엔터프라이즈 요금제는 다음 주부터, API는 오늘부터 순차 적용된다.",
+      original:"OpenAI introduced GPT-5.5, cutting inference cost ~50% at the same accuracy while halving average latency. The release focuses on a 1M-token context window and improved function-calling reliability. Enterprise tiers roll out next week; API access begins today.",
+      tags:["OpenAI","GPT5","LLM"], url:"https://openai.com" },
+
+    { id:2, category:"연구", source:"arXiv", time:"어제", important:false,
+      title:"소형 모델이 대형 모델을 이기는 새로운 학습법 공개",
+      body:"7B 파라미터 모델이 70B 모델 수준의 추론 성능을 달성했다는 연구가 발표됐다. 핵심은 단계적 자기검증 루프로, 모델이 스스로 중간 추론을 점검하고 오류를 교정하도록 훈련한 점이다. 연구진은 수학·코딩 벤치마크에서 10배 큰 모델과 동등하거나 우세한 결과를 보였다고 밝혔다.",
+      original:"A 7B model reaches 70B-level reasoning via a staged self-verification loop that lets it check and correct its own intermediate steps, matching or beating 10x larger models on math and coding benchmarks.",
+      tags:["연구","효율화","추론"], url:"https://arxiv.org" },
+
+    { id:3, category:"비즈니스", source:"Bloomberg", time:"5시간", important:false,
+      title:"앤트로픽, 기업가치 60조원 평가로 신규 투자 유치 마무리",
+      body:"앤트로픽이 최신 투자 라운드에서 약 60조원의 기업가치를 인정받았다. 엔터프라이즈 수요 급증과 코딩 에이전트 매출 성장이 평가의 근거로 꼽혔다.",
+      original:"Anthropic closed a new funding round at roughly a $42B valuation, driven by surging enterprise demand and growth in coding-agent revenue.",
+      tags:["Anthropic","투자","엔터프라이즈"], url:"https://bloomberg.com" },
+
+    { id:4, category:"도구", source:"GitHub", time:"7시간", important:false,
+      title:"오픈소스 에이전트 프레임워크, 1주 만에 별 2만 개 돌파",
+      body:"로컬에서 멀티 에이전트 워크플로를 구성할 수 있는 신규 오픈소스 도구가 깃허브에서 빠르게 확산되고 있다. 코드 실행·브라우저 제어·파일 편집을 한 번에 묶는 점이 주목받았다.",
+      original:"A new open-source tool for building local multi-agent workflows crossed 20k GitHub stars in a week, praised for bundling code execution, browser control, and file editing.",
+      tags:["오픈소스","에이전트","도구"], url:"https://github.com" },
+
+    { id:5, category:"한국", source:"네이버", time:"9시간", important:true,
+      title:"네이버, 자체 LLM '하이퍼클로바 X2' 한국어 벤치마크 1위",
+      body:"네이버가 차세대 한국어 특화 모델을 공개하며 주요 한국어 평가에서 글로벌 모델들을 앞섰다고 발표했다. 검색·쇼핑·지도 서비스에 단계적으로 통합될 예정이다.",
+      original:"Naver unveiled its next Korean-specialized model, claiming top scores on major Korean benchmarks ahead of global models, with rollout across search, shopping, and maps.",
+      tags:["네이버","한국어","하이퍼클로바"], url:"https://naver.com" },
+  ];
+
+  setFilter(f){ this.setState({ filter:f }); }
+  toggleExpand(id){ this.setState(s => ({ expanded:{...s.expanded, [id]:!s.expanded[id]} })); }
+  toggleTranslate(id){ this.setState(s => ({ translated:{...s.translated, [id]:!s.translated[id]} })); }
+
+  renderVals(){
+    const dark = this.props.darkMode ?? false;
+    const colored = this.props.coloredAvatars ?? true;
+    const clamp = this.props.clampLines ?? 3;
+
+    const themeVars = dark
+      ? "--bg:#0a0a0a;--tx:#f5f5f5;--sub:#8a8a8a;--body:#c9c9c9;--div:#262626;--link:#9bb0c2;--chip:#1a1a1a;--chipTx:#c9c9c9;--chipOn:#f5f5f5;--chipOnTx:#0a0a0a"
+      : "--bg:#ffffff;--tx:#0a0a0a;--sub:#999999;--body:#3c3c3c;--div:#ededed;--link:#536471;--chip:#f4f4f4;--chipTx:#5a5a5a;--chipOn:#0a0a0a;--chipOnTx:#ffffff";
+
+    const catNames = Object.keys(this.cats);
+    const filterDefs = ["전체", ...catNames, "🔴 중요"];
+    const filters = filterDefs.map(label => {
+      const active = this.state.filter === label;
+      return {
+        label,
+        onClick: () => this.setFilter(label),
+        style: active
+          ? "background:var(--chipOn);color:var(--chipOnTx);border:1px solid var(--chipOn)"
+          : "background:var(--chip);color:var(--chipTx);border:1px solid transparent",
+      };
+    });
+
+    const f = this.state.filter;
+    const list = this.data.filter(p =>
+      f === "전체" ? true : f === "🔴 중요" ? p.important : p.category === f
+    );
+
+    const posts = list.map(p => {
+      const cat = this.cats[p.category] || { emoji:"📰", color:"#888" };
+      const expanded = !!this.state.expanded[p.id];
+      const translated = !!this.state.translated[p.id];
+      const text = translated ? p.original : p.body;
+      const needsMore = text.length > 90;
+      const bodyStyle = (needsMore && !expanded)
+        ? `display:-webkit-box;-webkit-line-clamp:${clamp};-webkit-box-orient:vertical;overflow:hidden`
+        : "";
+      const avatarStyle = colored
+        ? `background:color-mix(in srgb, ${cat.color} 18%, var(--bg,#fff));box-shadow:inset 0 0 0 1.5px ${cat.color}`
+        : "background:var(--chip);box-shadow:inset 0 0 0 1px var(--div)";
+      return {
+        ...p,
+        emoji: cat.emoji,
+        avatarStyle,
+        displayBody: text,
+        bodyStyle,
+        needsMore,
+        moreLabel: expanded ? "접기" : "더보기",
+        translateLabel: translated ? "원문 보기" : "번역 보기",
+        onToggle: () => this.toggleExpand(p.id),
+        onTranslate: () => this.toggleTranslate(p.id),
+      };
+    });
+
+    return { themeVars, filters, posts };
+  }
+}
+</script>
+</body>
+</html>
