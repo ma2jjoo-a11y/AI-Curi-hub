@@ -81,10 +81,12 @@ function postHTML(item) {
   const important = isImportant(item);
   const saved = savedSet.has(item.id);
 
+  // 본문 첫 단락 첫 단어 앞에 마커를 붙여 리드와 기사 본문을 시각적으로 구분한다.
+  const ARTICLE_MARK = '<span class="article-mark">📰</span>';
   const articleHTML = hasBody
     ? `<div class="post-article hidden">${
         body.split(/\n{2,}/).map(p => p.trim()).filter(Boolean)
-          .map(p => `<p>${esc(p)}</p>`).join('')
+          .map((p, i) => `<p>${i === 0 ? ARTICLE_MARK : ''}${esc(p)}</p>`).join('')
       }</div>`
     : '';
 
