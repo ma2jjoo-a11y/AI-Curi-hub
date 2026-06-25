@@ -14,10 +14,14 @@
 | 소스 | URL | 방식 |
 |------|-----|------|
 | Anthropic News | https://www.anthropic.com/news | Web fetch |
-| Anthropic Changelog | https://docs.anthropic.com/changelog | Web fetch |
+| Anthropic Research | https://www.anthropic.com/research | Web fetch |
+| Anthropic Changelog (API) | https://docs.anthropic.com/changelog | Web fetch |
+| Claude 릴리즈노트 (앱) | https://support.claude.com/en/articles/12138966-release-notes | Web fetch (Claude 앱·기능 업데이트) |
+| Claude Code Docs | https://code.claude.com/docs/en/ | Web fetch (Claude Code 변경·기능) |
 | OpenAI Blog | https://openai.com/news/rss.xml | RSS (※ /news 웹페이지는 403 — RSS로 우회) |
 | OpenAI Changelog | https://platform.openai.com/docs/changelog | Web fetch |
 | Google DeepMind Blog | https://deepmind.google/discover/blog/ | Web fetch |
+| Google Blog (AI) | https://blog.google/innovation-and-ai/rss/ | RSS (구글 공식 블로그 AI 섹션 — DeepMind와 별개) |
 | Meta AI Blog | https://ai.meta.com/blog/ | Web fetch |
 | Mistral Blog | https://mistral.ai/news/ | Web fetch |
 
@@ -28,6 +32,7 @@
 | Reddit r/ClaudeAI | https://www.reddit.com/r/ClaudeAI/new.json | Reddit API |
 | Reddit r/artificial | https://www.reddit.com/r/artificial/new.json | Reddit API |
 | Reddit r/MachineLearning | https://www.reddit.com/r/MachineLearning/new.json | Reddit API |
+| Simon Willison's Weblog | https://simonwillison.net/atom/everything/ | Atom (LLM·코딩 에이전트·AI 보안 심층 분석) |
 
 ### 뉴스·미디어
 | 소스 | URL | 방식 |
@@ -37,6 +42,7 @@
 | The Verge AI | https://www.theverge.com/ai-artificial-intelligence/rss/index.xml | RSS |
 | The Decoder | https://the-decoder.com/feed/ | RSS (독립 AI 전문매체, 팩트 중심 — 글로벌·일본·중국 커버) |
 | The Rundown AI | https://www.therundown.ai/feed | RSS (대형 AI 뉴스레터, 속보 빠름) |
+| MIT Technology Review (AI) | https://www.technologyreview.com/topic/artificial-intelligence/feed/ | RSS (AI 전용 섹션 — 정책·연구 심층) |
 
 ### 뉴스레터 RSS
 | 소스 | URL |
