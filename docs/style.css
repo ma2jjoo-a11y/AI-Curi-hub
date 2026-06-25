@@ -146,13 +146,10 @@ body {
 
 .post-title { font-weight: 700; font-size: 17px; line-height: 1.32; letter-spacing: -.01em; margin-top: 5px; }
 
-.post-body { font-size: 15px; line-height: 1.5; color: var(--body); margin-top: 6px; word-break: break-word; }
-.post-body.clamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+.post-lead { font-size: 15px; line-height: 1.5; color: var(--body); margin-top: 6px; word-break: break-word; }
+.post-article { margin-top: 2px; }
+.post-article p { font-size: 15px; line-height: 1.62; color: var(--body); margin-top: 11px; word-break: break-word; }
+.post-article p:first-child { margin-top: 8px; }
 
 .toggle-more {
   margin-top: 3px;

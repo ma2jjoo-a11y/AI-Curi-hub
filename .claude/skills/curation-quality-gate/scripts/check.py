@@ -15,6 +15,7 @@ import re
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 VALID_CATEGORIES = {
     "🚀 릴리즈", "🔧 도구", "📡 API·기술", "📊 연구",
@@ -37,7 +38,28 @@ HYPE_WORDS = [
 
 MAX_ITEMS = 15
 ROLLOVER_DAYS = 30
-MAX_SENTENCES = 3
+
+# 카드 url 은 '개별 기사'를 가리켜야 한다(대문/랜딩 페이지 금지).
+# path 가 비었거나 아래 일반 세그먼트로만 이뤄졌으면 대문 링크로 본다.
+GENERIC_SEGMENTS = {
+    "news", "blog", "blogs", "discover", "index", "articles", "article",
+    "press", "category", "topics", "ai", "research", "newsroom",
+}
+
+
+def is_generic_url(url):
+    """대문/랜딩 URL이면 True. 개별 기사 URL이면 False."""
+    try:
+        p = urlparse(url)
+    except ValueError:
+        return False
+    segments = [s for s in p.path.split("/") if s]
+    # 쿼리스트링으로 기사를 특정하는 형태(예: ?idxno=, ?no=)는 개별 기사로 인정
+    if p.query and re.search(r"\d", p.query):
+        return False
+    if not segments:
+        return True
+    return all(s.lower() in GENERIC_SEGMENTS for s in segments)
 
 
 def split_sentences(text):
@@ -138,9 +160,12 @@ def main():
         if it.get("importance") not in VALID_IMPORTANCE:
             blockers.append(f"[{tag}] importance 값 이상: {it.get('importance')!r}")
 
-        # url 형식
+        # url 형식 / 대문 링크 금지
         if url and not re.match(r"^https?://", str(url)):
             blockers.append(f"[{tag}] url 형식 이상(http/https 아님): {url}")
+        elif url and is_generic_url(url):
+            blockers.append(
+                f"[{tag}] 대문/랜딩 URL 금지: {url} — 개별 기사 URL로 교체 필요")
 
         # 날짜 / 롤오버
         age = days_old(it.get("date", ""), today)
@@ -151,16 +176,21 @@ def main():
         elif age < 0:
             reviews.append(f"[{tag}] date 가 미래({it.get('date')}) — 오타 확인")
 
-        # 요약 길이/문장 수
+        # 리드(summary_ko)는 짧게 — 카드 첫 화면에 보이는 한입 요약.
+        # 본문(body_ko)은 기사형이라 길이 제한을 두지 않는다.
         summary = it.get("summary_ko", "") or ""
+        body = it.get("body_ko", "") or ""
         n_sent = len(split_sentences(summary))
-        if n_sent > MAX_SENTENCES:
-            reviews.append(f"[{tag}] 요약 {n_sent}문장 — 2~3문장 권장, 늘어졌는지 확인")
-        if len(summary) > 220:
-            reviews.append(f"[{tag}] 요약 {len(summary)}자 — 다소 김, 군더더기 확인")
+        if n_sent > 4:
+            reviews.append(f"[{tag}] 리드 {n_sent}문장 — 리드는 2~3문장 한입 요약 권장(자세한 내용은 본문으로)")
+        if len(summary) > 240:
+            reviews.append(f"[{tag}] 리드 {len(summary)}자 — 다소 김, 핵심만 남기고 본문으로 옮길지 검토")
+        # 본문 부재 — 기사형 확장 권장(원문 못 읽어 비워둔 경우 표시)
+        if not body.strip():
+            reviews.append(f"[{tag}] 기사 본문(body_ko) 없음 — 원문을 읽고 기사형으로 확장 검토")
 
-        # 과장·낚시성 어휘 (자동 차단 아님 — 검토용)
-        blob = f"{it.get('title_ko','')} {summary}"
+        # 과장·낚시성 어휘 (자동 차단 아님 — 검토용). 리드+본문 모두 검사.
+        blob = f"{it.get('title_ko','')} {summary} {body}"
         hits = sorted({w for w in HYPE_WORDS if w in blob})
         if hits:
             reviews.append(f"[{tag}] 과장·낚시 의심어: {', '.join(hits)} — 사실 보도 맥락인지 확인")

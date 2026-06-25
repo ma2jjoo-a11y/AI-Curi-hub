@@ -11,7 +11,6 @@ const CATEGORIES = {
   '화제':     { emoji: '🔥', color: '#e8590c' },
 };
 const FALLBACK = { emoji: '📰', color: '#888888' };
-const CLAMP_THRESHOLD = 90; // 본문 길이 > 90자일 때만 클램프
 
 let allItems = [];
 let activeCat = 'all';       // 'all' | 카테고리명
@@ -75,11 +74,19 @@ const SHARE = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" strok
 function postHTML(item) {
   const meta = catMeta(item.category);
   const name = catName(item.category);
-  const body = item.summary_ko || '';
+  const lead = item.summary_ko || '';              // 리드문장 — 항상 보임
+  const body = item.body_ko || '';                 // 기사 본문 — 더보기로 펼침 (문단은 빈 줄로 구분)
+  const hasBody = body.trim().length > 0;
   const original = item.original || '';            // 원문(영문) — 없으면 번역 토글 숨김
-  const needsMore = body.length > CLAMP_THRESHOLD;
   const important = isImportant(item);
   const saved = savedSet.has(item.id);
+
+  const articleHTML = hasBody
+    ? `<div class="post-article hidden">${
+        body.split(/\n{2,}/).map(p => p.trim()).filter(Boolean)
+          .map(p => `<p>${esc(p)}</p>`).join('')
+      }</div>`
+    : '';
 
   const avatarStyle =
     `background:color-mix(in srgb, ${meta.color} 18%, var(--bg));` +
@@ -90,7 +97,7 @@ function postHTML(item) {
     : '';
 
   const translateBtn = original
-    ? `<button class="btn-translate" data-orig="${esc(original)}" data-trans="${esc(body)}">번역 보기</button>`
+    ? `<button class="btn-translate" data-orig="${esc(original)}" data-trans="${esc(lead)}">번역 보기</button>`
     : '';
 
   return `
@@ -104,8 +111,9 @@ function postHTML(item) {
         <span class="more-menu" aria-hidden="true">···</span>
       </div>
       <h2 class="post-title">${esc(item.title_ko)}</h2>
-      <p class="post-body ${needsMore ? 'clamp' : ''}">${esc(body)}</p>
-      ${needsMore ? '<button class="toggle-more">더보기</button>' : ''}
+      <p class="post-lead">${esc(lead)}</p>
+      ${articleHTML}
+      ${hasBody ? '<button class="toggle-more">더보기</button>' : ''}
       ${tags}
       <div class="post-actions">
         <a class="btn-read" href="${esc(item.url)}" target="_blank" rel="noopener">원본 읽기 ${ARROW}</a>
@@ -140,16 +148,16 @@ function render() {
 document.getElementById('feed').addEventListener('click', (e) => {
   const moreBtn = e.target.closest('.toggle-more');
   if (moreBtn) {
-    const body = moreBtn.previousElementSibling;
-    const clamped = body.classList.toggle('clamp');
-    moreBtn.textContent = clamped ? '더보기' : '접기';
+    const article = moreBtn.previousElementSibling; // .post-article
+    const hidden = article.classList.toggle('hidden');
+    moreBtn.textContent = hidden ? '더보기' : '접기';
     return;
   }
   const transBtn = e.target.closest('.btn-translate');
   if (transBtn) {
-    const body = transBtn.closest('.post-content').querySelector('.post-body');
+    const lead = transBtn.closest('.post-content').querySelector('.post-lead');
     const showingTrans = transBtn.textContent === '번역 보기';
-    body.textContent = showingTrans ? transBtn.dataset.orig : transBtn.dataset.trans;
+    lead.textContent = showingTrans ? transBtn.dataset.orig : transBtn.dataset.trans;
     transBtn.textContent = showingTrans ? '원문 보기' : '번역 보기';
     return;
   }
