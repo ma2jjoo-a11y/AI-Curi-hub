@@ -113,7 +113,7 @@ function postHTML(item) {
         <span class="more-menu" aria-hidden="true">···</span>
       </div>
       <h2 class="post-title">${esc(item.title_ko)}</h2>
-      <p class="post-lead">${esc(lead)}</p>
+      <p class="post-lead">“${esc(lead)}”</p>
       ${articleHTML}
       ${hasBody ? '<button class="toggle-more">더보기</button>' : ''}
       ${tags}
