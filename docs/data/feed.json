@@ -1,6 +1,97 @@
 {
-  "last_updated": "2026-06-24T07:00:00Z",
+  "last_updated": "2026-06-25T05:30:00Z",
   "items": [
+    {
+      "id": "anthali",
+      "date": "2026-06-25",
+      "category": "💼 비즈니스",
+      "title_ko": "앤트로픽, 백악관에 '알리바바의 클로드 데이터 무단 탈취' 제재 요청",
+      "summary_ko": "앤트로픽이 알리바바가 클로드(Claude) 관련 데이터를 무단으로 탈취했다며 백악관에 강력한 제재를 요청했다고 AI타임스가 보도했다. 미·중 AI 기업 간 데이터 분쟁이 정부 차원으로 확대되는 사안이다.",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=212088",
+      "importance": "high",
+      "tags": [
+        "Anthropic",
+        "알리바바",
+        "미중갈등"
+      ]
+    },
+    {
+      "id": "harnessx",
+      "date": "2026-06-25",
+      "category": "📊 연구",
+      "title_ko": "샤오미, 스스로 구조 바꾸는 AI 프레임워크 '하네스X' 공개",
+      "summary_ko": "샤오미가 모델 구조를 스스로 재구성하는 AI 프레임워크 '하네스X(HarnessX)'를 공개했다. 회사는 이 기법으로 소형 모델의 성능을 최대 44% 끌어올렸다고 밝혔다.",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=212096",
+      "importance": "medium",
+      "tags": [
+        "샤오미",
+        "소형모델",
+        "프레임워크"
+      ]
+    },
+    {
+      "id": "qwenaw",
+      "date": "2026-06-25",
+      "category": "📡 API·기술",
+      "title_ko": "알리바바, 환경을 예측하는 에이전트 모델 '큐원-에이전트월드' 공개",
+      "summary_ko": "알리바바가 행동 대신 '환경'을 예측하는 방식의 에이전트 모델 '큐원-에이전트월드(Qwen-AgentWorld)'를 공개했다. 추가 학습 없이도 에이전트 성능을 높일 수 있다고 설명했다.",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=212090",
+      "importance": "medium",
+      "tags": [
+        "알리바바",
+        "Qwen",
+        "에이전트"
+      ]
+    },
+    {
+      "id": "qualcpu",
+      "date": "2026-06-25",
+      "category": "💼 비즈니스",
+      "title_ko": "퀄컴, AI 데이터센터 CPU 진입…메타에 '드래곤플라이 C1000' 공급",
+      "summary_ko": "퀄컴이 AI 데이터센터용 CPU 시장에 본격 진입하며 메타에 '드래곤플라이 C1000'을 공급한다고 밝혔다. 데이터센터 칩 경쟁이 GPU를 넘어 CPU 영역으로 확대되고 있다.",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=212079",
+      "importance": "medium",
+      "tags": [
+        "퀄컴",
+        "데이터센터",
+        "메타"
+      ]
+    },
+    {
+      "id": "sktaxk1",
+      "date": "2026-06-25",
+      "category": "🌏 한국",
+      "title_ko": "SKT, 독자 모델 'A.X K1' 제조업 첫 적용…KG스틸·코넥 실증",
+      "summary_ko": "SK텔레콤이 자체 개발한 모델 'A.X K1'을 제조업 현장에 처음 적용해 KG스틸·코넥과 실증에 나섰다. 통신사 독자 모델을 산업 현장에 투입하는 국내 사례다.",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=212083",
+      "importance": "medium",
+      "tags": [
+        "SKT",
+        "A.X",
+        "제조업"
+      ]
+    },
+    {
+      "id": "openaichip",
+      "date": "2026-06-24",
+      "category": "🚀 릴리즈",
+      "title_ko": "OpenAI·브로드컴, LLM 추론 전용 칩 '할라피뇨' 공개",
+      "summary_ko": "OpenAI가 브로드컴과 협력해 대규모언어모델(LLM) 추론에 최적화한 맞춤형 AI 칩 '할라피뇨(Jalapeño)'를 공개했다. 추론 단계의 성능을 끌어올리도록 설계한 자체 칩으로, AI 인프라의 칩 자립 흐름을 보여준다.",
+      "source": "OpenAI Blog",
+      "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip",
+      "importance": "high",
+      "tags": [
+        "OpenAI",
+        "Broadcom",
+        "반도체",
+        "추론"
+      ]
+    },
     {
       "id": "claudetag1",
       "date": "2026-06-24",
@@ -10,40 +101,12 @@
       "source": "Anthropic Blog",
       "url": "https://www.anthropic.com/news",
       "importance": "high",
-      "tags": ["Claude", "Anthropic", "Slack", "협업"]
-    },
-    {
-      "id": "anthseoul1",
-      "date": "2026-06-17",
-      "category": "🌏 한국",
-      "title_ko": "Anthropic, 서울 사무소 개설 및 한국 파트너십 확대",
-      "summary_ko": "Anthropic이 서울 사무소를 열고 한국 AI 생태계 전반과의 파트너십을 발표했다. 아시아 지역 사무소 확대 전략의 일환으로, 국내 기업의 Claude 도입이 한층 가속될 전망이다.",
-      "source": "Anthropic Blog",
-      "url": "https://www.anthropic.com/news",
-      "importance": "high",
-      "tags": ["Anthropic", "한국", "파트너십"]
-    },
-    {
-      "id": "gemini35x",
-      "date": "2026-06-20",
-      "category": "🚀 릴리즈",
-      "title_ko": "Google DeepMind, 'Gemini 3.5' 공개 — 실행형 지능 강화",
-      "summary_ko": "DeepMind가 'Gemini 3.5: frontier intelligence with action'을 발표했다. 단순 응답을 넘어 실제 작업을 수행하는 에이전트형 능력이 강화된 것이 핵심이다.",
-      "source": "Google DeepMind Blog",
-      "url": "https://deepmind.google/discover/blog/",
-      "importance": "high",
-      "tags": ["Gemini", "DeepMind", "에이전트"]
-    },
-    {
-      "id": "agentsec1",
-      "date": "2026-06-18",
-      "category": "📊 연구",
-      "title_ko": "DeepMind, AI 에이전트 보안 연구 방향 공개",
-      "summary_ko": "DeepMind가 'Securing the future of AI agents'를 주제로 다중 에이전트 환경의 보안 위협에 대한 선제적 연구 방향을 제시했다. 에이전트 확산에 따른 안전성 확보가 화두로 떠올랐다.",
-      "source": "Google DeepMind Blog",
-      "url": "https://deepmind.google/discover/blog/",
-      "importance": "medium",
-      "tags": ["보안", "에이전트", "AI안전"]
+      "tags": [
+        "Claude",
+        "Anthropic",
+        "Slack",
+        "협업"
+      ]
     },
     {
       "id": "varco3d",
@@ -54,7 +117,26 @@
       "source": "AI타임스",
       "url": "https://www.aitimes.com",
       "importance": "medium",
-      "tags": ["한국", "3D생성", "NC AI"]
+      "tags": [
+        "한국",
+        "3D생성",
+        "NC AI"
+      ]
+    },
+    {
+      "id": "gpt5immu",
+      "date": "2026-06-23",
+      "category": "📊 연구",
+      "title_ko": "GPT-5, 면역학자의 3년 묵은 난제 해결 도와",
+      "summary_ko": "OpenAI가 GPT-5가 면역학자 데리야 우누트마즈의 3년간 풀리지 않던 연구 난제를 푸는 데 기여한 사례를 공개했다. AI가 실제 생명과학 연구의 가설 수립과 문제 해결을 보조한 사례로 소개됐다.",
+      "source": "OpenAI Blog",
+      "url": "https://openai.com/index/gpt-5-immunology-mystery",
+      "importance": "medium",
+      "tags": [
+        "GPT-5",
+        "연구",
+        "바이오"
+      ]
     },
     {
       "id": "naverlabs1",
@@ -65,18 +147,26 @@
       "source": "AI타임스",
       "url": "https://www.aitimes.com",
       "importance": "low",
-      "tags": ["한국", "로봇", "네이버랩스"]
+      "tags": [
+        "한국",
+        "로봇",
+        "네이버랩스"
+      ]
     },
     {
-      "id": "norwayban",
-      "date": "2026-06-19",
-      "category": "🔥 화제",
-      "title_ko": "노르웨이, 초등학교 AI 사용 사실상 금지",
-      "summary_ko": "노르웨이가 초등학교에서 AI 사용을 사실상 금지하는 정책을 시행했다. 아동 발달에 미치는 영향에 대한 우려가 배경으로, 해커뉴스에서 800포인트 넘는 큰 화제가 됐다.",
-      "source": "Reuters / Hacker News",
-      "url": "https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/",
-      "importance": "medium",
-      "tags": ["정책", "교육", "규제"]
+      "id": "gemini35x",
+      "date": "2026-06-20",
+      "category": "🚀 릴리즈",
+      "title_ko": "Google DeepMind, 'Gemini 3.5' 공개 — 실행형 지능 강화",
+      "summary_ko": "DeepMind가 'Gemini 3.5: frontier intelligence with action'을 발표했다. 단순 응답을 넘어 실제 작업을 수행하는 에이전트형 능력이 강화된 것이 핵심이다.",
+      "source": "Google DeepMind Blog",
+      "url": "https://deepmind.google/discover/blog/",
+      "importance": "high",
+      "tags": [
+        "Gemini",
+        "DeepMind",
+        "에이전트"
+      ]
     },
     {
       "id": "aicost1",
@@ -87,18 +177,56 @@
       "source": "Hacker News",
       "url": "https://blog.dshr.org/2026/06/ais-affordability-crisis.html",
       "importance": "medium",
-      "tags": ["비용", "비즈니스", "트렌드"]
+      "tags": [
+        "비용",
+        "비즈니스",
+        "트렌드"
+      ]
     },
     {
-      "id": "tcspartner",
-      "date": "2026-06-12",
-      "category": "💼 비즈니스",
-      "title_ko": "Anthropic, TCS와 규제 산업용 Claude 도입 협력",
-      "summary_ko": "Anthropic이 TCS와 파트너십을 맺고 금융·항공 등 규제 산업에 Claude를 도입하기로 했다. 보안·규정 준수가 중요한 영역으로 엔터프라이즈 AI 적용이 확대되고 있다.",
+      "id": "norwayban",
+      "date": "2026-06-19",
+      "category": "🔥 화제",
+      "title_ko": "노르웨이, 초등학교 AI 사용 사실상 금지",
+      "summary_ko": "노르웨이가 초등학교에서 AI 사용을 사실상 금지하는 정책을 시행했다. 아동 발달에 미치는 영향에 대한 우려가 배경으로, 해커뉴스에서 800포인트 넘는 큰 화제가 됐다.",
+      "source": "Reuters / Hacker News",
+      "url": "https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/",
+      "importance": "medium",
+      "tags": [
+        "정책",
+        "교육",
+        "규제"
+      ]
+    },
+    {
+      "id": "agentsec1",
+      "date": "2026-06-18",
+      "category": "📊 연구",
+      "title_ko": "DeepMind, AI 에이전트 보안 연구 방향 공개",
+      "summary_ko": "DeepMind가 'Securing the future of AI agents'를 주제로 다중 에이전트 환경의 보안 위협에 대한 선제적 연구 방향을 제시했다. 에이전트 확산에 따른 안전성 확보가 화두로 떠올랐다.",
+      "source": "Google DeepMind Blog",
+      "url": "https://deepmind.google/discover/blog/",
+      "importance": "medium",
+      "tags": [
+        "보안",
+        "에이전트",
+        "AI안전"
+      ]
+    },
+    {
+      "id": "anthseoul1",
+      "date": "2026-06-17",
+      "category": "🌏 한국",
+      "title_ko": "Anthropic, 서울 사무소 개설 및 한국 파트너십 확대",
+      "summary_ko": "Anthropic이 서울 사무소를 열고 한국 AI 생태계 전반과의 파트너십을 발표했다. 아시아 지역 사무소 확대 전략의 일환으로, 국내 기업의 Claude 도입이 한층 가속될 전망이다.",
       "source": "Anthropic Blog",
       "url": "https://www.anthropic.com/news",
-      "importance": "low",
-      "tags": ["Anthropic", "엔터프라이즈", "파트너십"]
+      "importance": "high",
+      "tags": [
+        "Anthropic",
+        "한국",
+        "파트너십"
+      ]
     }
   ]
 }

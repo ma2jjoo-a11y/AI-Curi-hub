@@ -1,0 +1,21 @@
+{
+  "collected_at": "2026-06-25T05:30:00Z",
+  "source_count": 8,
+  "item_count": 16,
+  "errors": [
+    { "source": "The Verge AI", "reason": "fetch blocked" },
+    { "source": "TechCrunch AI RSS", "reason": "stale feed (most recent 2026-04-27)" },
+    { "source": "VentureBeat AI RSS", "reason": "stale feed (no 06-24/25 items)" }
+  ],
+  "items": [
+    { "id": "openaichip", "source": "OpenAI Blog", "source_type": "official", "title": "OpenAI and Broadcom unveil LLM-optimized inference chip", "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip", "published_at": "2026-06-24T06:00:00Z", "raw_summary": "Custom AI chip built for LLM inference, designed to enhance performance across AI systems.", "category_hint": "release" },
+    { "id": "oaistandards", "source": "OpenAI Blog", "source_type": "official", "title": "Helping build shared standards for advanced AI", "url": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai", "published_at": "2026-06-23T13:00:00Z", "raw_summary": "OpenAI on contributing to shared standards for advanced AI.", "category_hint": "business" },
+    { "id": "gpt5immu", "source": "OpenAI Blog", "source_type": "official", "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery", "url": "https://openai.com/index/gpt-5-immunology-mystery", "published_at": "2026-06-23T17:00:00Z", "raw_summary": "GPT-5 assisted immunologist Derya Unutmaz in solving a 3-year research mystery.", "category_hint": "research" },
+    { "id": "harnessx", "source": "AI타임스", "source_type": "news", "title": "샤오미, 스스로 구조 바꾸는 AI 프레임워크 '하네스X' 공개…소형 모델 성능 최대 44% 향상", "url": "https://www.aitimes.com/news/articleView.html?idxno=212096", "published_at": "2026-06-25T04:34:00Z", "raw_summary": "샤오미가 모델 구조를 스스로 재구성하는 프레임워크 하네스X로 소형 모델 성능을 최대 44% 향상.", "category_hint": "research" },
+    { "id": "qwenaw", "source": "AI타임스", "source_type": "news", "title": "알리바바, '행동' 대신 '환경' 예측하는 '큐원-에이전트월드' 공개…학습 없이도 에이전트 성능 향상", "url": "https://www.aitimes.com/news/articleView.html?idxno=212090", "published_at": "2026-06-25T04:34:00Z", "raw_summary": "알리바바가 환경을 예측하는 에이전트 모델 큐원-에이전트월드 공개, 추가 학습 없이 성능 향상.", "category_hint": "research" },
+    { "id": "anthali", "source": "AI타임스", "source_type": "news", "title": "앤트로픽, 백악관에 \"알리바바가 클로드 데이터 무단 탈취\" 강력 제재 요청", "url": "https://www.aitimes.com/news/articleView.html?idxno=212088", "published_at": "2026-06-25T02:26:00Z", "raw_summary": "앤트로픽이 알리바바의 클로드 데이터 무단 탈취를 주장하며 백악관에 제재 요청.", "category_hint": "business" },
+    { "id": "qualcpu", "source": "AI타임스", "source_type": "news", "title": "퀄컴, AI 데이터센터 CPU 시장 본격 진입... 메타에 '드래곤플라이 C1000' 공급", "url": "https://www.aitimes.com/news/articleView.html?idxno=212079", "published_at": "2026-06-25T02:26:00Z", "raw_summary": "퀄컴이 AI 데이터센터 CPU 시장에 진입하며 메타에 드래곤플라이 C1000 공급.", "category_hint": "business" },
+    { "id": "sktaxk1", "source": "AI타임스", "source_type": "news", "title": "SKT, 독자 모델 'A.X K1' 제조업에 첫 적용...KG스틸·코넥 현장 실증", "url": "https://www.aitimes.com/news/articleView.html?idxno=212083", "published_at": "2026-06-25T02:17:00Z", "raw_summary": "SK텔레콤이 독자 모델 A.X K1을 제조업 현장에 첫 적용, KG스틸·코넥과 실증.", "category_hint": "korea" },
+    { "id": "metasec", "source": "AI타임스", "source_type": "news", "title": "미국, 메타에 'AI 모델 안보 검토' 압박…빅테크 통제 강화", "url": "https://www.aitimes.com/news/articleView.html?idxno=212081", "published_at": "2026-06-25T02:27:00Z", "raw_summary": "미국 정부가 메타에 AI 모델 안보 검토를 압박하며 빅테크 통제 강화.", "category_hint": "business" }
+  ]
+}
