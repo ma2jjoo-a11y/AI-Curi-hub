@@ -118,14 +118,15 @@ body {
 @keyframes rise { from { transform: translateY(4px); } to { transform: translateY(0); } }
 
 .post {
-  display: flex;
-  gap: 12px;
+  display: block;
   padding: 18px 16px;
   border-bottom: 1px solid var(--div);
   animation: rise .25s ease both; /* opacity 미사용 — transform만 */
 }
 
-/* (A) 아바타 */
+/* (A) 상단 라인 — 아바타 + 헤더를 한 줄로 (스레드 상세뷰 스타일) */
+.post-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+
 .avatar {
   flex-shrink: 0;
   width: 42px; height: 42px;
@@ -135,10 +136,8 @@ body {
   line-height: 1;
 }
 
-/* (B) 콘텐츠 */
-.post-content { flex: 1; min-width: 0; }
-
-.post-header { display: flex; align-items: center; gap: 6px; }
+/* (B) 콘텐츠 — 상단 라인 아래 전체 폭 */
+.post-header { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
 .acct { font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
 .imp-dot { width: 6px; height: 6px; border-radius: 50%; background: #f0322e; flex-shrink: 0; }
 .meta { font-size: 15px; color: var(--sub); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

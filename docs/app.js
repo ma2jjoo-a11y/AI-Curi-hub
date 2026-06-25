@@ -51,8 +51,6 @@ function isImportant(item) {
   return item.important === true || item.importance === 'high';
 }
 
-const savedSet = new Set(JSON.parse(localStorage.getItem('aicuri:saved') || '[]'));
-
 function filterItems() {
   let items = [...allItems];
   if (activeImportant) items = items.filter(isImportant);
@@ -68,8 +66,7 @@ function filterItems() {
 }
 
 const ARROW = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="8 7 17 7 17 16"></polyline></svg>';
-const BOOKMARK = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v16l-6-4-6 4z"></path></svg>';
-const SHARE = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"></line><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"></line></svg>';
+const SHARE ='<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"></line><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"></line></svg>';
 
 function postHTML(item) {
   const meta = catMeta(item.category);
@@ -79,12 +76,11 @@ function postHTML(item) {
   const hasBody = body.trim().length > 0;
   const original = item.original || '';            // 원문(영문) — 없으면 번역 토글 숨김
   const important = isImportant(item);
-  const saved = savedSet.has(item.id);
 
   // 본문 첫 단락 첫 단어 앞에 마커를 붙여 리드와 기사 본문을 시각적으로 구분한다.
   const ARTICLE_MARK = '<span class="article-mark">📰</span>';
   const articleHTML = hasBody
-    ? `<div class="post-article hidden">${
+    ? `<div class="post-article">${
         body.split(/\n{2,}/).map(p => p.trim()).filter(Boolean)
           .map((p, i) => `<p>${i === 0 ? ARTICLE_MARK : ''}${esc(p)}</p>`).join('')
       }</div>`
@@ -104,26 +100,24 @@ function postHTML(item) {
 
   return `
   <article class="post" data-id="${esc(item.id)}">
-    <div class="avatar" style="${avatarStyle}" title="${esc(name)}">${meta.emoji}</div>
-    <div class="post-content">
+    <div class="post-top">
+      <div class="avatar" style="${avatarStyle}" title="${esc(name)}">${meta.emoji}</div>
       <div class="post-header">
         <span class="acct">${esc(name)}</span>
         ${important ? '<span class="imp-dot" title="중요"></span>' : ''}
         <span class="meta">· ${esc(item.source)} · ${esc(relTime(item.date))}</span>
         <span class="more-menu" aria-hidden="true">···</span>
       </div>
-      <h2 class="post-title">${esc(item.title_ko)}</h2>
-      <p class="post-lead">“${esc(lead)}”</p>
-      ${articleHTML}
-      ${hasBody ? '<button class="toggle-more">더보기</button>' : ''}
-      ${tags}
-      <div class="post-actions">
-        <a class="btn-read" href="${esc(item.url)}" target="_blank" rel="noopener">원본 읽기 ${ARROW}</a>
-        ${translateBtn}
-        <span class="spacer"></span>
-        <button class="icon-btn bookmark ${saved ? 'on' : ''}" aria-label="북마크">${BOOKMARK}</button>
-        <button class="icon-btn share" aria-label="공유">${SHARE}</button>
-      </div>
+    </div>
+    <h2 class="post-title">${esc(item.title_ko)}</h2>
+    <p class="post-lead">“${esc(lead)}”</p>
+    ${articleHTML}
+    ${tags}
+    <div class="post-actions">
+      <a class="btn-read" href="${esc(item.url)}" target="_blank" rel="noopener">원본 읽기 ${ARROW}</a>
+      ${translateBtn}
+      <span class="spacer"></span>
+      <button class="icon-btn share" aria-label="공유">${SHARE}</button>
     </div>
   </article>`;
 }
@@ -148,27 +142,12 @@ function render() {
 
 // ── 피드 내 인터랙션 (이벤트 위임) ──
 document.getElementById('feed').addEventListener('click', (e) => {
-  const moreBtn = e.target.closest('.toggle-more');
-  if (moreBtn) {
-    const article = moreBtn.previousElementSibling; // .post-article
-    const hidden = article.classList.toggle('hidden');
-    moreBtn.textContent = hidden ? '더보기' : '접기';
-    return;
-  }
   const transBtn = e.target.closest('.btn-translate');
   if (transBtn) {
-    const lead = transBtn.closest('.post-content').querySelector('.post-lead');
+    const lead = transBtn.closest('.post').querySelector('.post-lead');
     const showingTrans = transBtn.textContent === '번역 보기';
     lead.textContent = showingTrans ? transBtn.dataset.orig : transBtn.dataset.trans;
     transBtn.textContent = showingTrans ? '원문 보기' : '번역 보기';
-    return;
-  }
-  const bm = e.target.closest('.bookmark');
-  if (bm) {
-    const id = bm.closest('.post').dataset.id;
-    if (savedSet.has(id)) { savedSet.delete(id); bm.classList.remove('on'); }
-    else { savedSet.add(id); bm.classList.add('on'); }
-    localStorage.setItem('aicuri:saved', JSON.stringify([...savedSet]));
     return;
   }
   const sh = e.target.closest('.share');
