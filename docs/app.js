@@ -80,7 +80,7 @@ function postHTML(item) {
   // 본문 첫 단락 첫 단어 앞에 마커를 붙여 리드와 기사 본문을 시각적으로 구분한다.
   const ARTICLE_MARK = '<span class="article-mark">📰</span>';
   const articleHTML = hasBody
-    ? `<div class="post-article">${
+    ? `<div class="post-article hidden">${
         body.split(/\n{2,}/).map(p => p.trim()).filter(Boolean)
           .map((p, i) => `<p>${i === 0 ? ARTICLE_MARK : ''}${esc(p)}</p>`).join('')
       }</div>`
@@ -106,12 +106,12 @@ function postHTML(item) {
         <span class="acct">${esc(name)}</span>
         ${important ? '<span class="imp-dot" title="중요"></span>' : ''}
         <span class="meta">· ${esc(item.source)} · ${esc(relTime(item.date))}</span>
-        <span class="more-menu" aria-hidden="true">···</span>
       </div>
     </div>
     <h2 class="post-title">${esc(item.title_ko)}</h2>
     <p class="post-lead">“${esc(lead)}”</p>
     ${articleHTML}
+    ${hasBody ? '<button class="toggle-more">더보기</button>' : ''}
     ${tags}
     <div class="post-actions">
       <a class="btn-read" href="${esc(item.url)}" target="_blank" rel="noopener">원본 읽기 ${ARROW}</a>
@@ -142,6 +142,13 @@ function render() {
 
 // ── 피드 내 인터랙션 (이벤트 위임) ──
 document.getElementById('feed').addEventListener('click', (e) => {
+  const moreBtn = e.target.closest('.toggle-more');
+  if (moreBtn) {
+    const article = moreBtn.previousElementSibling; // .post-article
+    const hidden = article.classList.toggle('hidden');
+    moreBtn.textContent = hidden ? '더보기' : '접기';
+    return;
+  }
   const transBtn = e.target.closest('.btn-translate');
   if (transBtn) {
     const lead = transBtn.closest('.post').querySelector('.post-lead');
