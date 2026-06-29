@@ -13,6 +13,7 @@ SKILL.md 의 사람/에이전트 검토 단계로 넘긴다. 여기서는 사실
 import json
 import re
 import sys
+from collections import Counter
 from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -122,9 +123,12 @@ def main():
         print("❌ items 배열 없음")
         return 1
 
-    # --- 카드 수 ---
-    if len(items) > MAX_ITEMS:
-        blockers.append(f"카드 {len(items)}개 — 하루 최대 {MAX_ITEMS}개 초과 (품질 우선)")
+    # --- 하루(날짜)당 카드 수 ---
+    # 피드는 최근 30일치를 누적하므로 총합이 아니라 '같은 날짜' 카드 수를 센다.
+    per_day = Counter(it.get("date") for it in items if isinstance(it, dict))
+    for d, n in sorted(per_day.items()):
+        if n > MAX_ITEMS:
+            blockers.append(f"{d} 카드 {n}개 — 하루 최대 {MAX_ITEMS}개 초과 (품질 우선)")
 
     archive_urls = load_archive_urls(feed_path)
     seen_ids, seen_urls = {}, {}
