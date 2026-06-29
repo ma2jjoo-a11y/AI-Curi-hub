@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "gemini35x",
+      "date": "2026-05-19",
+      "category": "🚀 릴리즈",
+      "title_ko": "Google DeepMind, 'Gemini 3.5' 공개 — 실행형 지능 강화",
+      "summary_ko": "구글이 5월 Google I/O에서 '실행하는 지능'을 내세운 Gemini 3.5 모델군을 공개했다. 에이전트·코딩에 특화돼 복잡한 장기 작업을 수행하는 능력이 강화된 것이 핵심이다.",
+      "body_ko": "구글이 5월 19일 Google I/O에서 Gemini 3.5 모델군을 공개했다. '실행하는 프런티어 지능(frontier intelligence with action)'을 내세워, 단순 응답을 넘어 에이전트와 코딩처럼 여러 단계를 거치는 장기 작업을 수행하는 데 초점을 맞췄다.\n\n먼저 공개된 Gemini 3.5 플래시는 구글의 역대 가장 강력한 에이전트·코딩 모델로, 터미널벤치 2.1(76.2%), MCP 아틀라스(83.6%) 등 주요 벤치마크에서 이전 세대인 제미나이 3.1 프로를 앞섰다. 멀티모달 이해(CharXiv 84.2%)에서도 우위를 보였고, 초당 출력 토큰은 다른 프런티어 모델의 약 4배다.\n\n구글은 에이전트 실행 인프라도 함께 내놨다. Gemini API의 '매니지드 에이전트(Managed Agents)'를 퍼블릭 프리뷰로 공개해, API 호출 한 번으로 격리된 구글 호스팅 리눅스 샌드박스 안에서 에이전트가 추론하고 도구를 호출하며 코드를 실행하고 상태를 유지하도록 했다. 플래시는 발표 즉시 구글 AI 모드 기본 모델로 적용됐고, 상위 모델인 3.5 프로는 이후 단계적으로 출시됐다.",
+      "source": "Google Blog",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+      "importance": "high",
+      "tags": [
+        "Gemini",
+        "DeepMind",
+        "에이전트"
+      ]
+    }
+  ]
+}
