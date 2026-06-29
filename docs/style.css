@@ -162,12 +162,24 @@ body {
   font-family: inherit;
 }
 
-.post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 11px; }
+/* 태그: 한 줄 고정 + 넘치면 가로 스크롤(스와이프). 개수 많아도 줄바꿈 없음 */
+.post-tags {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-top: 11px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;             /* Firefox: 스크롤바 숨김 */
+}
+.post-tags::-webkit-scrollbar { display: none; }  /* Chrome/Safari: 스크롤바 숨김 */
 .post-tags .tag {
   font-size: 14px;
   font-weight: 600;
   color: var(--link);
   cursor: pointer;
+  white-space: nowrap;   /* 태그 안에서 줄바꿈 방지 */
+  flex-shrink: 0;        /* 태그가 찌그러지지 않게 */
 }
 
 .post-actions { display: flex; align-items: center; gap: 8px; margin-top: 13px; }
