@@ -1,2 +1,9 @@
 # Claude Code 로컬 설정 (머신별 권한 등 — 커밋 안 함)
 .claude/settings.local.json
+
+# 파이썬 캐시 (로컬 테스트 산물)
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
