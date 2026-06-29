@@ -1,0 +1,48 @@
+name: 매일 AI 뉴스 자동 큐레이션
+
+# 언제 도는가:
+#  - 매일 08:55 KST (= 23:55 UTC) 자동
+#  - 깃허브 Actions 탭의 "Run workflow" 버튼으로 수동 실행도 가능
+on:
+  schedule:
+    - cron: "55 23 * * *"
+  workflow_dispatch:
+
+# 이 작업이 feed.json을 고쳐 push할 수 있도록 쓰기 권한 부여
+permissions:
+  contents: write
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 레포 가져오기
+        uses: actions/checkout@v4
+
+      - name: 파이썬 준비
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 필요한 부품 설치
+        run: pip install -r collector/requirements.txt
+
+      - name: 뉴스 수집 + 제미나이 기사화
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python collector/build_feed.py
+
+      - name: 품질 게이트 검사 (통과 못 하면 게시 안 함)
+        run: python .claude/skills/curation-quality-gate/scripts/check.py docs/data/feed.json
+
+      - name: 변경 있으면 라이브에 게시(push)
+        run: |
+          if git diff --quiet -- docs/data/; then
+            echo "새 내용 없음 — 게시 생략"
+            exit 0
+          fi
+          git config user.name "AI-Curi Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/
+          git commit -m "🤖 매일 자동 큐레이션 ($(TZ=Asia/Seoul date +%Y-%m-%d))"
+          git push
