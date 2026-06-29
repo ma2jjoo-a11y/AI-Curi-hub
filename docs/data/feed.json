@@ -12,8 +12,8 @@
       "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=679175",
       "importance": "medium",
       "tags": [
-        "전국민 AI 경진대회",
         "과기정통부",
+        "전국민 AI 경진대회",
         "AI 교육",
         "한국"
       ]
@@ -30,9 +30,9 @@
       "importance": "medium",
       "tags": [
         "KISA",
-        "개인정보보호",
+        "한국인터넷진흥원",
         "딥페이크",
-        "AI 윤리"
+        "개인정보보호"
       ]
     },
     {
@@ -46,10 +46,10 @@
       "url": "https://www.aitimes.com/news/articleView.html?idxno=212240",
       "importance": "medium",
       "tags": [
-        "AI 신뢰성",
-        "해커톤",
         "씽크포비엘",
-        "AI 윤리"
+        "트라이톤",
+        "AI 신뢰성",
+        "해커톤"
       ]
     },
     {
@@ -64,8 +64,8 @@
       "importance": "medium",
       "tags": [
         "LG AI연구원",
-        "정보보호",
         "ISO 27001",
+        "정보보호",
         "AI 보안"
       ]
     },
@@ -81,8 +81,10 @@
       "importance": "high",
       "tags": [
         "Zhipu AI",
+        "즈푸",
+        "Anthropic",
+        "앤트로픽",
         "GLM-5.2",
-        "Mythos",
         "사이버보안"
       ]
     },
@@ -98,9 +100,9 @@
       "importance": "medium",
       "tags": [
         "Suno",
+        "수노",
         "AI 음악",
-        "Spark",
-        "저작권"
+        "Spark"
       ]
     },
     {
@@ -115,9 +117,9 @@
       "importance": "medium",
       "tags": [
         "Ford",
-        "AI 한계",
-        "엔지니어",
-        "자동화"
+        "포드",
+        "자동화",
+        "AI 한계"
       ]
     },
     {
@@ -134,7 +136,7 @@
         "중국",
         "슈퍼컴퓨터",
         "LineShine",
-        "미중 기술 경쟁"
+        "미중 기술경쟁"
       ]
     },
     {
@@ -150,6 +152,7 @@
       "tags": [
         "HP",
         "OpenAI",
+        "오픈AI",
         "Frontier",
         "기업 AI"
       ]
@@ -166,9 +169,11 @@
       "importance": "high",
       "tags": [
         "Micron",
+        "마이크론",
+        "Nvidia",
+        "엔비디아",
         "HBM",
-        "AI 반도체",
-        "Nvidia"
+        "AI 반도체"
       ]
     },
     {
@@ -183,9 +188,10 @@
       "importance": "medium",
       "tags": [
         "AI 에이전트",
-        "작업 완료",
         "디지털 동료",
-        "LLM"
+        "Tencent",
+        "텐센트",
+        "연구"
       ]
     },
     {
@@ -200,9 +206,9 @@
       "importance": "high",
       "tags": [
         "Coinbase",
+        "코인베이스",
         "중국 AI 모델",
-        "가격 경쟁",
-        "LLM"
+        "AI 비용"
       ]
     },
     {
@@ -216,10 +222,10 @@
       "url": "https://the-decoder.com/only-three-ai-models-finished-above-starting-capital-in-a-500-day-startup-survival-test/",
       "importance": "medium",
       "tags": [
-        "AI 에이전트",
+        "프린스턴대",
         "CEO-Bench",
-        "스타트업 시뮬레이션",
-        "전략적 사고"
+        "AI 에이전트",
+        "벤치마크"
       ]
     },
     {
@@ -233,10 +239,11 @@
       "url": "https://techcrunch.com/2026/06/27/softbanks-ceo-isnt-the-only-one-with-questions-about-elon-musks-orbital-data-center-hype/",
       "importance": "medium",
       "tags": [
-        "일론 머스크",
-        "궤도 데이터센터",
         "SoftBank",
-        "AI 인프라"
+        "소프트뱅크",
+        "일론 머스크",
+        "Elon Musk",
+        "데이터센터"
       ]
     },
     {
@@ -251,6 +258,7 @@
       "importance": "high",
       "tags": [
         "OpenAI",
+        "오픈AI",
         "GPT-5.6",
         "규제",
         "출시"
@@ -268,7 +276,8 @@
       "importance": "high",
       "tags": [
         "Anthropic",
-        "Mythos",
+        "앤트로픽",
+        "Mythos 5",
         "규제",
         "미국"
       ]
@@ -285,6 +294,8 @@
       "importance": "high",
       "tags": [
         "Anthropic",
+        "앤트로픽",
+        "Alibaba",
         "알리바바",
         "미중갈등"
       ]
@@ -300,7 +311,9 @@
       "url": "https://www.aitimes.com/news/articleView.html?idxno=212096",
       "importance": "medium",
       "tags": [
+        "Xiaomi",
         "샤오미",
+        "하네스X",
         "소형모델",
         "프레임워크"
       ]
@@ -316,8 +329,10 @@
       "url": "https://www.aitimes.com/news/articleView.html?idxno=212090",
       "importance": "medium",
       "tags": [
+        "Alibaba",
         "알리바바",
         "Qwen",
+        "큐원",
         "에이전트"
       ]
     },
@@ -332,9 +347,12 @@
       "url": "https://www.aitimes.com/news/articleView.html?idxno=212079",
       "importance": "medium",
       "tags": [
+        "Qualcomm",
         "퀄컴",
+        "Meta",
+        "메타",
         "데이터센터",
-        "메타"
+        "CPU"
       ]
     },
     {
@@ -349,7 +367,8 @@
       "importance": "medium",
       "tags": [
         "SKT",
-        "A.X",
+        "SK텔레콤",
+        "A.X K1",
         "제조업"
       ]
     },
@@ -364,9 +383,11 @@
       "url": "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/",
       "importance": "high",
       "tags": [
+        "Google",
         "구글",
+        "DeepMind",
         "딥마인드",
-        "인재",
+        "인재 이탈",
         "이직"
       ]
     },
@@ -382,7 +403,9 @@
       "importance": "high",
       "tags": [
         "OpenAI",
+        "오픈AI",
         "Broadcom",
+        "브로드컴",
         "반도체",
         "추론"
       ]
@@ -398,10 +421,11 @@
       "url": "https://the-decoder.com/claude-tag-embeds-anthropics-ai-in-slack-already-writes-65-percent-of-internal-code-company-says/",
       "importance": "high",
       "tags": [
-        "Claude",
         "Anthropic",
-        "Slack",
-        "협업"
+        "앤트로픽",
+        "Claude",
+        "클로드",
+        "Slack"
       ]
     },
     {
@@ -415,9 +439,10 @@
       "url": "https://zdnet.co.kr/view/?no=20260624153332",
       "importance": "medium",
       "tags": [
-        "한국",
-        "3D생성",
-        "NC AI"
+        "NC AI",
+        "엔씨",
+        "바르코 3D",
+        "3D 생성"
       ]
     },
     {
@@ -432,8 +457,10 @@
       "importance": "medium",
       "tags": [
         "GPT-5",
-        "연구",
-        "바이오"
+        "OpenAI",
+        "오픈AI",
+        "면역학",
+        "연구"
       ]
     },
     {
@@ -447,8 +474,10 @@
       "url": "https://sakana.ai/fugu-release/",
       "importance": "high",
       "tags": [
-        "Sakana",
-        "일본",
+        "Sakana AI",
+        "사카나",
+        "후구",
+        "Fugu",
         "멀티에이전트"
       ]
     },
@@ -463,7 +492,8 @@
       "url": "https://blog.dshr.org/2026/06/ais-affordability-crisis.html",
       "importance": "medium",
       "tags": [
-        "비용",
+        "AI 비용",
+        "수익성",
         "비즈니스",
         "트렌드"
       ]
@@ -479,9 +509,10 @@
       "url": "https://www.engadget.com/2198117/norway-imposes-broad-restrictions-on-ai-for-elementary-school-kids/",
       "importance": "medium",
       "tags": [
-        "정책",
-        "교육",
-        "규제"
+        "노르웨이",
+        "Norway",
+        "AI 규제",
+        "교육"
       ]
     },
     {
@@ -495,9 +526,11 @@
       "url": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
       "importance": "medium",
       "tags": [
+        "DeepMind",
+        "딥마인드",
+        "AI 에이전트",
         "보안",
-        "에이전트",
-        "AI안전"
+        "AI 안전"
       ]
     },
     {
@@ -512,6 +545,7 @@
       "importance": "high",
       "tags": [
         "Anthropic",
+        "앤트로픽",
         "한국",
         "파트너십"
       ]
