@@ -8,6 +8,18 @@
 ## 실행 주기
 매일 오전 7시 (KST)
 
+## ⚠️ 네트워크 제약 (수집 전 반드시 확인)
+실행 환경의 **네트워크 송신(egress) 정책**에 따라 아래 소스 대부분이 **직접 접근 불가**할 수 있다.
+- **증상**: WebFetch / curl / RSS 요청이 `HTTP 403` 또는 "CONNECT tunnel failed, response 403". 진단: `curl "$HTTPS_PROXY/__agentproxy/status"` 의 `recentRelayFailures` 에 `connect_rejected`(policy denial)로 찍힘.
+- **원인**: 사이트 봇 차단이 아니라 **조직/환경 네트워크 정책**. 제한형 정책에서는 GitHub·패키지 레지스트리·anthropic.com 만 허용되고 일반 웹(뉴스·RSS·reddit·hn 등)은 전부 차단된다.
+- **하면 안 되는 것**: 정책 거부(403/407)를 **코드로 우회하지 말 것**(프록시 규칙). 보고 대상이다.
+- **정책이 막혀 있을 때의 수집 방법**:
+  1. **WebSearch 를 1차 수집 채널로 사용** (앤트로픽 서버측 도구라 egress 정책과 무관하게 동작). 소스별/주제별 한국어·영어 쿼리로 순회하고, 결과의 개별 기사 URL을 `url`로 채운다.
+  2. GitHub 호스팅 소스(일부 changelog·model card·릴리즈)는 `api.github.com`/`raw.githubusercontent.com` 로 접근 가능.
+  3. **검증 규율**: 한 건당 신뢰매체 **2곳 이상 교차확인**. 출시/수치 주장은 저품질·단발 매체 단독 근거 금지(오보 방지). WebFetch로 원문 대조가 안 되면 그 사실을 `errors` 에 남긴다.
+- **근본 해결**: 네트워크 정책을 개방형으로 변경하면 아래 소스 목록을 원설계대로(RSS/WebFetch) 순회 가능. (환경 소유자만 변경 가능 — https://code.claude.com/docs/en/claude-code-on-the-web)
+- 정책상 접근이 막힌 소스는 **하나하나 재시도해 시간 낭비하지 말고**, 대표 몇 개로 차단 여부만 확인한 뒤 WebSearch 경로로 전환한다.
+
 ## 수집 소스 목록
 
 ### 공식 발표 (최우선)

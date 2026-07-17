@@ -82,8 +82,12 @@ git add docs/data/feed.json && git commit -m "큐레이션 YYYY-MM-DD" && git pu
 - **수집 로그**: `collector/output/2026-07-17.json` (published 6 / dropped 5 / errors 기록).
 
 #### ⚠️ 오류 (발생 → 해결)
-1. **WebFetch 전면 403** — 이 세션에서 anthropic/openai/techcrunch/the-decoder/aitimes/therundown 등 origin·RSS 대상 WebFetch가 광범위하게 403 반환(사이트측 봇 차단, 프록시 정책 아님). `curl $HTTPS_PROXY/__agentproxy/status`의 recentRelayFailures 비어 있음으로 확인.
-   → **해결(우회)**: WebSearch로 수집·작성. 개별 원문 1:1 대조는 불가하므로 **복수 신뢰매체 교차확인**으로 대체. (근본 해결책 아님 — 아래 '다음 할 일' 참고)
+1. **웹 소스 전면 접근 불가 (근본 원인 규명)** — 처음엔 "사이트측 봇 차단"으로 봤으나 **오진이었음**. 실제 원인은 **이 실행 환경의 네트워크 송신(egress) 정책**이다.
+   - 증거: `curl "$HTTPS_PROXY/__agentproxy/status"`의 `recentRelayFailures`에 `connect_rejected` / "gateway answered 403 to CONNECT (**policy denial**)" 로 techcrunch·openai·the-decoder 등이 기록됨. curl 에러도 "CONNECT tunnel failed, response 403"(=프록시가 CONNECT 거부).
+   - 정책 성격(실측): **허용** = `api.github.com`·`raw.githubusercontent.com`·pypi/npm 등 패키지 레지스트리·anthropic.com. **차단** = 일반 웹 전부(wikipedia·google·arxiv·hn.algolia·reddit + 모든 뉴스/RSS 소스). 즉 "GitHub + 패키지 레지스트리만 허용"하는 **제한형 네트워크 정책**.
+   - ⚠️ 프록시 규칙상 **조직 정책 거부(403/407)는 우회 금지, 보고 대상**. 그래서 코드로 뚫지 않는다.
+   → **당장의 해결(우회)**: **WebSearch**(앤트로픽 서버측 도구라 egress 정책과 무관하게 동작)로 수집·작성. 원문 1:1 대조는 불가 → **복수 신뢰매체 교차확인 + 품질게이트**로 보완.
+   → **근본 해결(Joy 조치 필요)**: 웹 세션 생성 시 **네트워크 정책을 더 개방적인 등급으로 변경**하거나 수집 소스 도메인을 허용목록에 추가. 문서: https://code.claude.com/docs/en/claude-code-on-the-web (환경·네트워크 정책 섹션).
 2. **제미나이 카드 오류(초벌)** — 초벌에서 "제미나이 3.5 정식 출시"로 카드를 썼으나, 그 blog.google URL은 **5월 19일 I/O 발표분(이미 archive/2026-05.json에 존재)**이었고, 저품질 매체만 "7/17 출시"라 보도. 블룸버그·CNBC(7/16)는 **오히려 출시 연기 + 알파벳 주가 하락**으로 확인.
    → **해결**: `curation-quality-gate`가 archive URL 중복으로 플래그 → 카드를 사실(출시 연기, 출처 CNBC)로 교체. **품질 게이트가 오보를 막은 사례.**
 
@@ -93,8 +97,9 @@ git add docs/data/feed.json && git commit -m "큐레이션 YYYY-MM-DD" && git pu
 - **Anthropic 블로그(대규모 코드 마이그레이션) / Claude Code 접근성 업데이트**: 개별 기사 URL 확정 실패(대문·롤링 release-notes만 확인) → '개별 기사 URL' 규칙 미충족으로 보류.
 
 #### 📌 다음 할 일 (이 이슈들 근본 해결)
-- **WebFetch 403 우회책 마련**: RSS 미러/리더 서비스 경유, User-Agent 조정 가능 경로, 또는 MCP 기반 fetch 도구 탐색. 현 상태로는 `body_ko`를 원문 1:1로 대조 못 해 오보 위험이 상존함 → **collector 파이프라인의 최우선 개선 과제**.
-- **한국 소식 소스 보강**: 오늘 국내 신규건이 마땅치 않았음. AI타임스/디지털투데이 RSS도 403이라 국내 커버리지가 약해짐 → 대체 접근로 필요.
+- **[Joy 조치] 네트워크 정책 변경이 근본 해결**: 현재 환경은 뉴스/RSS 소스가 전부 차단이라 원문 대조가 구조적으로 불가. 웹 세션의 네트워크 정책을 개방형으로 바꾸면 collector가 원래 설계대로(RSS/WebFetch) 굴러감. → https://code.claude.com/docs/en/claude-code-on-the-web
+- **[정책 변경 전까지] WebSearch 기반 수집을 표준 절차로**: `collector/CLAUDE.md`에 반영함. 규율 = ①한 건당 신뢰매체 2곳 이상 교차확인 ②출시/수치 주장은 저품질 매체 단독 근거 금지(오늘 제미나이 오보를 이 규율로 잡음) ③게시 전 `curation-quality-gate` 필수.
+- **한국 소식 소스 보강**: AI타임스/디지털투데이 RSS도 차단이라 국내 커버리지 약함 → 정책 개방 시 우선 복구, 그 전엔 WebSearch 한국어 쿼리로 보완.
 
 ---
 *다비가 깔아둔 토대 위에서, 이제 큐리가 굴려주면 돼! — 다비 🦁*
