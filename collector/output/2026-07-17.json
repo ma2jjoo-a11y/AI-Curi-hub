@@ -1,0 +1,159 @@
+{
+  "collected_at": "2026-07-17T07:00:00Z",
+  "method": "WebSearch fallback (WebFetch 403 blocked)",
+  "source_count": 11,
+  "item_count": 11,
+  "errors": [
+    {
+      "source": "Anthropic News (www.anthropic.com/news)",
+      "reason": "HTTP 403 (WebFetch 봇 차단) — 원문 대조 불가"
+    },
+    {
+      "source": "OpenAI Blog RSS (openai.com/news/rss.xml)",
+      "reason": "HTTP 403 (WebFetch 봇 차단)"
+    },
+    {
+      "source": "The Decoder RSS (the-decoder.com/feed)",
+      "reason": "HTTP 403 (WebFetch 봇 차단)"
+    },
+    {
+      "source": "TechCrunch AI RSS (techcrunch.com/tag/artificial-intelligence/feed)",
+      "reason": "HTTP 403 (WebFetch 봇 차단)"
+    },
+    {
+      "source": "AI타임스 RSS (aitimes.com/rss/allArticle.xml)",
+      "reason": "HTTP 403 (WebFetch 봇 차단)"
+    },
+    {
+      "source": "The Rundown AI RSS (therundown.ai/feed)",
+      "reason": "HTTP 403 (WebFetch 봇 차단)"
+    },
+    {
+      "source": "(전체)",
+      "reason": "이 세션에서 origin/RSS 대상 WebFetch가 광범위하게 403(사이트측 봇 차단, 프록시 정책 아님). WebSearch로 우회 수집·작성함. 개별 원문 1:1 대조는 불가, 복수 신뢰매체 교차확인으로 대체."
+    }
+  ],
+  "items": [
+    {
+      "id": "82dece2f",
+      "source": "CNBC",
+      "source_type": "news",
+      "title": "Alphabet shares fall on report its most powerful AI model Gemini 3.5 Pro is delayed",
+      "url": "https://www.cnbc.com/2026/07/16/alphabet-stock-gemini-3-5-pro-ai.html",
+      "published_at": "2026-07-16",
+      "raw_summary": "Google is months behind schedule on Gemini 3.5 Pro, its most powerful flagship, as it works to improve coding; Alphabet shares fell. Gemini 3.5 Flash is already GA.",
+      "category_hint": "business",
+      "status": "published"
+    },
+    {
+      "id": "ef3c992c",
+      "source": "France 24",
+      "source_type": "news",
+      "title": "China's Xi urges global cooperation on AI, warns against single-country dominance",
+      "url": "https://www.france24.com/en/asia-pacific/20260717-china-s-xi-urges-global-cooperation-on-ai-warns-against-single-country-dominance",
+      "published_at": "2026-07-17",
+      "raw_summary": "Xi Jinping delivered a keynote at the opening of WAIC 2026 in Shanghai, his first in-person appearance since 2018, stressing people-centred AI and access for developing countries.",
+      "category_hint": "news",
+      "status": "published"
+    },
+    {
+      "id": "6385c0ab",
+      "source": "DIGITIMES",
+      "source_type": "news",
+      "title": "China moves to institutionalize its vision for global AI governance as Xi launches cooperation body",
+      "url": "https://www.digitimes.com/news/a20260717VL212/china-ai-governance-shanghai-2026.html",
+      "published_at": "2026-07-17",
+      "raw_summary": "China unveiled a multi-point Global AI Governance Action Plan at WAIC; 29 countries signed an agreement on 16 July to create the World AI Cooperation Organization (WAICO), headquartered in Shanghai.",
+      "category_hint": "business",
+      "status": "published"
+    },
+    {
+      "id": "2b6c4c46",
+      "source": "South China Morning Post",
+      "source_type": "news",
+      "title": "Huawei's new computing cluster, world's first AI agent phone to debut at China AI summit",
+      "url": "https://www.scmp.com/tech/article/3359733/huaweis-new-computing-cluster-worlds-first-ai-agent-phone-debut-china-ai-summit",
+      "published_at": "2026-07-17",
+      "raw_summary": "Huawei publicly displayed its Atlas 950 SuperPoD for the first time at WAIC, scaling up to 8,192 Ascend AI cards for trillion-parameter training and inference.",
+      "category_hint": "api",
+      "status": "published"
+    },
+    {
+      "id": "e282f6bc",
+      "source": "Global Times",
+      "source_type": "news",
+      "title": "300 plus AI products set to make their global debuts at WAIC with strong focus on practical applications",
+      "url": "https://www.globaltimes.cn/page/202607/1366139.shtml",
+      "published_at": "2026-07-17",
+      "raw_summary": "MiniMax unveiled its next-gen native multimodal flagship M3, supporting up to 1M tokens of context, built on its proprietary MSA (MiniMax Sparse Attention) architecture. 261 large models shown overall.",
+      "category_hint": "release",
+      "status": "published"
+    },
+    {
+      "id": "e4a378ad",
+      "source": "Global Times",
+      "source_type": "news",
+      "title": "China to debut 'transformer-like' shape-shifting robot at WAIC",
+      "url": "https://www.globaltimes.cn/page/202607/1365826.shtml",
+      "published_at": "2026-07-17",
+      "raw_summary": "Quester1, a shape-shifting personal robot switching between wheeled/bipedal/quadrupedal forms, debuts at WAIC; BrainCo launches a one-stop brain-controlled robotics R&D platform enabling mind-control within 10 minutes.",
+      "category_hint": "tool",
+      "status": "published"
+    },
+    {
+      "id": "4b6ea71a",
+      "source": "NAVER Corp.",
+      "source_type": "official",
+      "title": "네이버, 대화형 검색 'AI탭' 정식 출시… 5,000만 사용자의 일상으로",
+      "url": "https://www.navercorp.com/media/pressReleasesDetail?seq=10034429",
+      "published_at": "2026-06-26",
+      "raw_summary": "정식 출시는 6월 26일 건. 7/15 '1000만 돌파'는 컷오프(7/16) 이전. 오늘치 신규 발표 아님 → 제외.",
+      "category_hint": "korea",
+      "status": "dropped"
+    },
+    {
+      "id": "799b2938",
+      "source": "카카오",
+      "source_type": "official",
+      "title": "카카오, 카카오톡 채팅방에서 사용하는 'ChatGPT 챗봇' 기능 출시",
+      "url": "https://www.kakaocorp.com/page/detail/12056",
+      "published_at": "2026-06-16",
+      "raw_summary": "채팅방 ChatGPT 기능은 6/16 출시, PC확대·요약은 7/15 건 → 컷오프 이전, 오늘치 아님 → 제외.",
+      "category_hint": "korea",
+      "status": "dropped"
+    },
+    {
+      "id": "9de82771",
+      "source": "뉴스핌",
+      "source_type": "news",
+      "title": "[하반기 경제성장전략] 정부, 반도체·AI에 1350조 쏟는다",
+      "url": "https://www.newspim.com/news/view/20260713001090",
+      "published_at": "2026-07-14",
+      "raw_summary": "정부 하반기 경제성장전략(7/14 국무회의) 건 → 컷오프 이전 → 제외. (재부상 시 재검토)",
+      "category_hint": "korea",
+      "status": "dropped"
+    },
+    {
+      "id": "5da6410a",
+      "source": "Anthropic",
+      "source_type": "official",
+      "title": "How Anthropic runs large-scale code migrations with Claude Code (블로그)",
+      "url": "https://claude.com/blog",
+      "published_at": "2026-07-16",
+      "raw_summary": "블로그 존재는 확인했으나 개별 기사 URL을 확정 못 함(대문만 확인). 개별 URL 확보 전까지 보류 → 제외.",
+      "category_hint": "tool",
+      "status": "dropped"
+    },
+    {
+      "id": "90f4749a",
+      "source": "Anthropic",
+      "source_type": "official",
+      "title": "Claude Code 대규모 업데이트 (스크린리더 모드·서브에이전트 스트리밍 등)",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "published_at": "2026-07-16",
+      "raw_summary": "release-notes는 롤링 페이지(개별 날짜 기사 아님) + 서드파티(releasebot) 경유 → 개별 기사 요건 미충족 → 보류.",
+      "category_hint": "api",
+      "status": "dropped"
+    }
+  ]
+}
