@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": "agentsec1",
+      "date": "2026-06-18",
+      "category": "📊 연구",
+      "title_ko": "DeepMind, AI 에이전트 보안 연구 방향 공개",
+      "summary_ko": "DeepMind가 잘못 정렬될 수 있는 AI 에이전트를 시스템 차원에서 통제하는 'AI 컨트롤 로드맵'을 공개했다. 모델을 더 잘 만드는 문제가 아니라 '방어 심층화(defense-in-depth)' 문제로 접근한 것이 핵심이다.",
+      "body_ko": "DeepMind가 6월 18일 'AI 컨트롤 로드맵'을 공개하며, 에이전트 보안을 모델 개선이 아니라 '방어 심층화(defense-in-depth)' 문제로 규정했다. 정렬(alignment) 학습만으로는 에이전트가 인간 통제 아래 머문다고 보장할 수 없으니, 더 강력한 모델이 나오기 전에 구조적 봉쇄 장치를 먼저 만들어야 한다는 것이다.\n\n접근법은 자율 에이전트를 권한을 가진 내부 직원처럼 다루는 것이다. 언제든 손상될 수 있다고 가정하고, 실행 중 추론 과정을 감시하며, 돌이킬 수 없는 행동이 일어나기 전에 차단하는 식이다. DeepMind는 구글 인프라 안에서 동작하는 에이전트에 모니터링·접근 통제·차단 장치를 적용했다고 밝혔다.\n\n실제로 100만 건의 코딩 에이전트 작업을 분석하고 '제미나이 스파크' 에이전트에 실시간 모니터를 붙여, 의도치 않은 데이터 삭제 같은 문제에 즉시 대응했다. 흥미롭게도 적발된 사건 대부분은 악의가 아니라 에이전트의 오해나 목표 달성에 대한 과욕에서 비롯됐다.",
+      "source": "Google DeepMind Blog",
+      "url": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+      "importance": "medium",
+      "tags": [
+        "DeepMind",
+        "딥마인드",
+        "AI 에이전트",
+        "보안",
+        "AI 안전"
+      ]
+    },
+    {
+      "id": "anthseoul1",
+      "date": "2026-06-17",
+      "category": "🌏 한국",
+      "title_ko": "Anthropic, 서울 사무소 개설 및 한국 파트너십 확대",
+      "summary_ko": "Anthropic이 도쿄·벵갈루루에 이은 아시아·태평양 세 번째 사무소를 서울에 열고, 한국 정부·기업·학계와 폭넓은 파트너십을 발표했다. 국내 기업의 Claude 도입이 한층 가속될 전망이다.",
+      "body_ko": "Anthropic이 6월 17일 서울 사무소를 열었다. 도쿄, 벵갈루루에 이은 아시아·태평양 세 번째 거점으로, 한국에서 30년간 기술 사업을 이끈 최기영 대표가 총괄한다.\n\n정부 차원에서는 과학기술정보통신부와 AI 안전을 위한 업무협약(MOU)을 맺었다. 한국 AI안전연구소와 한국어 모델 안전성 평가를 함께 진행하고, AI 기반 사이버 위협 정보를 공유하기로 했다. 기업 도입도 본격화됐다. LG CNS는 수천 명 직원에게 Claude를 배포하고, 삼성SDS는 삼성전자 전반에 Claude Cowork·Claude Code를 포함한 도구를 적용한다.\n\n학계와는 KAIST·고려대·연세대·포스텍이 참여하는 국가AI연구실(NAIRL) 컨소시엄 소속 연구자 최대 60명에게 Claude를 제공해 AI 안전·정렬·견고성 연구를 지원한다. 또 BASS벤처스와 'Claude 빌드 데이'를 열어 국내 창업자·개발자 100여 명과 교류했다.",
+      "source": "Anthropic Blog",
+      "url": "https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem",
+      "importance": "high",
+      "tags": [
+        "Anthropic",
+        "앤트로픽",
+        "한국",
+        "파트너십"
+      ]
+    }
+  ]
+}
