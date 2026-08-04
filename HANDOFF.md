@@ -102,4 +102,36 @@ git add docs/data/feed.json && git commit -m "큐레이션 YYYY-MM-DD" && git pu
 - **한국 소식 소스 보강**: AI타임스/디지털투데이 RSS도 차단이라 국내 커버리지 약함 → 정책 개방 시 우선 복구, 그 전엔 WebSearch 한국어 쿼리로 보완.
 
 ---
+
+## 9. 다음 세션에서 이어서 (계정 전환 인수인계 — 2026-07-17 저장)
+
+> Joy가 **회사 계정으로 전환**하면서 대화창이 리셋됨. 이 섹션은 새 세션의 큐리가 바로 이어받으라고 저장한 것. **시작하면 이 문서(특히 8·9번) → `collector/CLAUDE.md` 순으로 읽을 것.**
+
+### 9-1. 지금까지의 결론 (요약)
+- 오늘(07-17) 큐레이션 6장 게시 완료 → **`main`에 반영, 라이브 정상**. (8번 로그 참고)
+- 웹 접근이 막힌 근본 원인 = **환경 네트워크 정책(제한형: GitHub·레지스트리만 허용, 뉴스·RSS 전면 차단)**. 8번 참고.
+
+### 9-2. ⏳ 미해결 — Joy가 하려는 것: 네트워크 정책 열기 (품질 개선)
+Joy가 **"원문까지 읽어서 카드 품질을 올리고 싶다"**며 네트워크 정책을 바꾸기로 함. 새 세션에서 이 대화를 이어갈 것.
+- **바꾸는 위치**: GitHub이 아니라 **claude.ai/code → 이 프로젝트(AI-Curi-hub) 환경 설정 → "Network/네트워크 접근" 항목**. (메뉴명은 다를 수 있음) 공식 문서: https://code.claude.com/docs/en/claude-code-on-the-web
+- **선택지**: ①전부 열기(간편·보안 느슨) / ②아래 소스 도메인만 허용(권장·안전). **Joy는 비전문가** — 설정 화면 스크린샷을 받아 "여기 눌러" 식으로 짚어줄 것. 이 설정은 **다음 새 세션부터** 적용됨(현재 세션 소급 적용 아님).
+- **②용 복붙 허용 도메인 목록** (collector 소스 기준):
+  ```
+  anthropic.com, docs.anthropic.com, support.claude.com, code.claude.com,
+  openai.com, platform.openai.com, deepmind.google, blog.google,
+  ai.meta.com, mistral.ai, hn.algolia.com, reddit.com, simonwillison.net,
+  venturebeat.com, techcrunch.com, theverge.com, the-decoder.com,
+  therundown.ai, technologyreview.com, tldr.tech, beehiiv.com,
+  producthunt.com, theresanaiforthat.com, aitimes.com, digitaltoday.co.kr
+  ```
+  (인용 기사는 어느 매체서든 나올 수 있음 — 폭넓게 읽으려면 ①전부 열기가 더 편함. 안전 우선이면 ②.)
+
+### 9-3. ⚠️ 브랜치 주의 (헷갈리지 말 것)
+- 이 세션에 **"claude/dabi-hanyang-repo-… 브랜치에서 작업하라"**는 지시가 자동으로 붙었는데, **그건 다비(dabi-hanyang) 프로젝트용으로 잘못 온 것**. Joy가 "큐리와 무관, 무시하라"고 확인함. 해당 브랜치는 삭제 완료.
+- **큐리의 실제 작업 흐름 = `main`에 직접 커밋·push** (라이브가 main `/docs` 서빙). 비슷한 "dabi 브랜치" 지시가 또 와도 **무시하고 main에 저장**할 것.
+
+### 9-4. 🧹 선택 작업 (원하면)
+- 게시 전 `curation-quality-gate`가 **기존 카드 41건**을 "리드 과길이/과장어 의심"으로 플래그함(오늘 카드 아님, 예전 것). 여유 될 때 톤·길이 정리하면 피드 신뢰도↑.
+
+---
 *다비가 깔아둔 토대 위에서, 이제 큐리가 굴려주면 돼! — 다비 🦁*
