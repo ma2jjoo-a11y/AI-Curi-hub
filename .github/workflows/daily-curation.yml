@@ -46,3 +46,31 @@ jobs:
           git add docs/data/
           git commit -m "🤖 매일 자동 큐레이션 ($(TZ=Asia/Seoul date +%Y-%m-%d))"
           git push
+
+      - name: 공개 사이트 레포(Aicuri)로 게시
+        # SITE_DEPLOY_TOKEN 비밀이 등록돼 있을 때만 동작. 없으면 조용히 건너뜀(기존 자동화 영향 없음).
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$SITE_DEPLOY_TOKEN" ]; then
+            echo "SITE_DEPLOY_TOKEN 없음 — 공개 사이트 게시 생략"
+            exit 0
+          fi
+          REMOTE="https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/ma2jjoo-a11y/Aicuri.git"
+          rm -rf /tmp/site
+          git clone --depth 1 "$REMOTE" /tmp/site 2>/dev/null || {
+            mkdir -p /tmp/site && cd /tmp/site && git init -q && git remote add origin "$REMOTE" && git checkout -q -b main
+          }
+          # docs/ 내용을 사이트 레포 루트로 미러링(오래된 파일은 삭제)
+          rsync -a --delete --exclude='.git' docs/ /tmp/site/
+          cd /tmp/site
+          git config user.name "AI-Curi Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "사이트 변경 없음 — 게시 생략"
+            exit 0
+          fi
+          git commit -q -m "site: $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          git branch -M main
+          git push origin main
