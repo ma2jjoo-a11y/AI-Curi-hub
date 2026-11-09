@@ -1,4 +1,6 @@
-requests
-feedparser
-beautifulsoup4
-google-genai
+# 버전 고정(재발방지): 라이브러리 자동 업데이트로 깨지는 것 방지.
+# 필요 시 수동으로 올리고, 올린 뒤 Actions 수동 실행으로 확인할 것.
+requests==2.34.2
+feedparser==6.0.14
+beautifulsoup4==4.15.0
+google-genai==3.0.0
