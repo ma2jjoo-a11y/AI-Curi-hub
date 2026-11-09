@@ -202,7 +202,12 @@ def build_prompt(candidates):
 
 def curate_with_gemini(candidates):
     from google import genai
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    # JSON 모드(response_mime_type)는 v1beta에서만 지원됨.
+    # google-genai 최신판은 기본이 v1이라 api_version을 명시해 고정한다.
+    client = genai.Client(
+        api_key=os.environ["GEMINI_API_KEY"],
+        http_options={"api_version": "v1beta"},
+    )
     prompt = build_prompt(candidates)
     resp = client.models.generate_content(
         model=GEMINI_MODEL,
